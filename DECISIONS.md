@@ -31,3 +31,8 @@ Décisions structurantes prises en cours de route, avec leur raison (SPEC §8).
 - « Générer » (re)remplit les créneaux actifs vides **et** les créneaux recette non verrouillés ; verrouillés, restes et dehors sont conservés (sinon le verrou n'aurait pas d'effet).
 - Priorités du score : à caser (pré-placement, les plus contraintes d'abord) > anti-répétition > part de favoris > variété > saison ≈ anti-gaspillage > rapidité en semaine > bruit (graine).
 - Les restes d'un plat avec viande comptent comme repas avec viande pour la limite flexitarienne.
+
+## 2026-10-27 — Build release
+
+- Le NDK `28.2.13676358` exigé par `jni` a été installé automatiquement par Gradle lors d'un build (licence déjà acceptée) ; `ndkVersion` reste `flutter.ndkVersion`.
+- Sur ce poste, Norton intercepte le TLS et `~/.gradle/gradle.properties` fait utiliser à Java le magasin Windows, inaccessible depuis le bac à sable de l'agent. Les builds lancés par l'agent utilisent un `GRADLE_USER_HOME` temporaire avec un magasin PKCS12 (autorités du JDK + racine Norton). Rien n'est modifié dans la configuration globale ni dans le projet.

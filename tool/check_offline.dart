@@ -54,6 +54,8 @@ final forbiddenCode = <String, RegExp>{
   'Socket': RegExp(r'\b(Raw)?(Secure)?(Web)?Socket\b'),
   'dart:html': RegExp(r'''['"]dart:html['"]'''),
   'drift remote': RegExp(r'package:drift/remote\.dart'),
+  'URL http(s)': RegExp(r'https?://'),
+  'HttpServer / InternetAddress': RegExp(r'\b(HttpServer|InternetAddress)\b'),
 };
 
 bool isBlacklisted(String name) =>
