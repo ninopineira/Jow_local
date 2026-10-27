@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter pub get)",
+      "Bash(flutter pub add *)",
+      "Bash(flutter pub deps *)",
+      "Bash(flutter pub outdated)",
+      "Bash(flutter analyze)",
+      "Bash(flutter analyze *)",
+      "Bash(flutter test)",
+      "Bash(flutter test *)",
+      "Bash(flutter build apk *)",
+      "Bash(flutter doctor)",
+      "Bash(flutter devices)",
+      "Bash(dart format *)",
+      "Bash(dart run build_runner *)",
+      "Bash(dart run tool/check_offline.dart)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "PowerShell(flutter analyze)",
+      "PowerShell(flutter test *)",
+      "PowerShell(dart format *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Read(./android/key.properties)",
+      "Read(**/*.jks)",
+      "Read(**/*.keystore)",
+      "Read(.env*)",
+      "Write(.env*)"
+    ]
+  }
+}
