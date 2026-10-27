@@ -9,7 +9,7 @@ Le source ne suffit pas : des plugins peuvent injecter des permissions dans le *
 
 1. `flutter build apk --release`. Si le SDK Android ou une licence manque, c'est un cas où l'utilisateur doit intervenir : donne-lui la commande exacte (par exemple `! flutter doctor --android-licenses`).
 2. `dart run tool/check_offline.dart`. Le script doit échouer (code ≠ 0) en cas de permission interdite dans l'APK, de paquet de la liste noire dans `pubspec.lock` ou de motif interdit dans `lib/`. Tant qu'il n'existe pas, l'écrire est la priorité (SPEC §1.5).
-3. Délègue au sous-agent **`relecteur-local`** pour l'audit complet : sauvegardes Android, configuration iOS, dépendances transitives, code.
+3. Délègue au sous-agent **`relecteur-local`** pour l'audit complet : sauvegardes Android, dépendances transitives, code.
 4. En cas d'échec, corrige la cause plutôt que le contrôle. Exemple : retirer le plugin fautif, ou retirer la permission avec `tools:node="remove"` en le justifiant dans `DECISIONS.md`. Ne retire jamais un motif de la liste noire pour faire passer le script.
 
 Compte rendu : permissions de l'APK release (liste), résultat du script, verdict du relecteur.

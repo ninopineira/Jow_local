@@ -17,8 +17,6 @@ Internet est autorisé **pendant le développement** (installer Flutter, récup�
 
 Autorisé (déclenché par l'utilisateur, sans émission réseau de l'app) : copier dans le presse-papiers, partager du texte via la feuille de partage du système, choisir un fichier via le sélecteur du système.
 
-**iOS** (dossier `ios/` présent, voir DECISIONS.md) : même esprit. Pas d'exception ATS (`NSAppTransportSecurity`/`NSAllowsArbitraryLoads`), pas de `NSLocalNetworkUsageDescription` ni `NSBonjourServices`, pas d'entitlement iCloud ni de mode d'arrière-plan réseau, et une base exclue de la sauvegarde iCloud (`NSURLIsExcludedFromBackupKey`). iOS n'a pas de permission INTERNET : la garantie repose sur les dépendances et le code.
-
 Avant d'ajouter une dépendance, vérifie qu'elle n'est pas réseau et regarde ses dépendances transitives dans `pubspec.lock`. En cas de doute, demande au sous-agent `relecteur-local`.
 
 ## Commandes
@@ -65,7 +63,7 @@ Stack : Flutter stable, drift + `sqlite3_flutter_libs`, Riverpod, go_router, Mat
 ## Délégation
 
 - **`testeur`** : après toute modification de code Dart ou de données, et avant chaque commit. Il lance `flutter analyze` et `flutter test`, puis renvoie un diagnostic des échecs (cause probable, fichier:ligne). Il ne modifie pas le code : c'est toi qui corriges.
-- **`relecteur-local`** : dès qu'on ajoute ou met à jour une dépendance, qu'on touche un manifeste Android, `Info.plist`, des entitlements, des réglages Gradle/Xcode, la sauvegarde, l'export/import ou tout code d'E/S. Également avant chaque build release. Il est en lecture seule et rend un verdict OK ou BLOQUANT.
+- **`relecteur-local`** : dès qu'on ajoute ou met à jour une dépendance, qu'on touche un manifeste Android, des réglages Gradle, la sauvegarde, l'export/import ou tout code d'E/S. Également avant chaque build release. Il est en lecture seule et rend un verdict OK ou BLOQUANT.
 - **`redacteur-recettes`** (sonnet) : pour les données du §5, dans cet ordre strict :
   1. **Catalogue d'abord** : un seul appel écrit `assets/recipes/ingredients.json` en entier (250 à 400 ingrédients). Le catalogue est figé avant de lancer les recettes.
   2. **Recettes par lots en parallèle** : plusieurs appels lancés dans le même message, chacun avec un thème et des quotas explicites (exemple : « lot vegan-1 : 15 plats véganes dont 6 sans four »), écrivant uniquement `assets/recipes/recipes/<lot>.json`. **Chaque lot n'utilise que des ingrédients du catalogue** et n'en ajoute jamais. S'il en manque un, il le signale dans son compte rendu ; tu mets alors le catalogue à jour toi-même, puis tu relances le lot.
@@ -74,7 +72,7 @@ Stack : Flutter stable, drift + `sqlite3_flutter_libs`, Riverpod, go_router, Mat
 
 ## Points d'attention
 
-- Développement sur Windows : pas de build iOS possible (Mac et Xcode nécessaires). Garde `ios/` compilable en théorie, sans travail spécifique.
+- **Android uniquement** : pas de dossier `ios/` ni de travail spécifique à iOS. Si une commande Flutter régénère `ios/`, supprime-le. Pour ajouter une plateforme, utilise toujours `--platforms android`.
 - `apkanalyzer` et `aapt2` se trouvent dans le SDK Android (`%ANDROID_HOME%\cmdline-tools\latest\bin`, `build-tools\<version>`). Le script doit les localiser lui-même.
 - Le ré-import du seed se fait par slug : il ne touche jamais `recipe_user_state` ni les recettes perso.
 - Performance du générateur : < 1 s pour 14 créneaux et 500 recettes.

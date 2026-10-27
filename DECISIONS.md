@@ -2,12 +2,10 @@
 
 Décisions structurantes prises en cours de route, avec leur raison (SPEC §8).
 
-## 2026-10-27 — Dossier `ios/` généré
+## 2026-10-27 — Android uniquement, `ios/` supprimé
 
-- **Décision** : le squelette est créé avec `flutter create --platforms android,ios`, à la demande explicite de l'utilisateur dans le prompt de scaffolding.
-- **Écart** : SPEC.md §2 et §8 disent « Android uniquement, ne crée pas de dossier `ios/` ».
-- **Conséquence** : la cible principale reste Android (tests sur l'hôte, essais sur téléphone Android). `ios/` est conservé sans travail spécifique, car aucun build n'est possible sous Windows. La règle hors ligne s'applique aussi à la configuration iOS (voir CLAUDE.md), et le sous-agent `relecteur-local` la vérifie.
-- À trancher par l'utilisateur : mettre SPEC.md à jour, ou supprimer `ios/`.
+- La mention d'iOS dans le prompt de scaffolding était une erreur. Le dossier `ios/` généré a été supprimé, conformément à SPEC §8 : Android uniquement.
+- `cupertino_icons` est retiré des dépendances : le projet utilise uniquement les icônes Material (SPEC §3.8).
 
 ## 2026-10-27 — Organisation des données fournies
 

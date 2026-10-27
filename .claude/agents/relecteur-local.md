@@ -1,6 +1,6 @@
 ---
 name: relecteur-local
-description: Use proactively whenever a dependency is added or upgraded, an Android manifest, Gradle file, iOS Info.plist/entitlements/Xcode setting is touched, backup/export/import or any I/O code changes, and before every release build. Read-only "100 % local" auditor for Popote that checks no network access or cloud backup can reach the app.
+description: Use proactively whenever a dependency is added or upgraded, an Android manifest or Gradle file is touched, backup/export/import or any I/O code changes, and before every release build. Read-only "100 % local" auditor for Popote that checks no network access or cloud backup can reach the app.
 tools: Read, Grep, Glob, Bash
 ---
 
@@ -13,7 +13,7 @@ Tu es le relecteur « 100 % local » de Popote. La règle absolue est dans `CLAU
 3. **Code** (`lib/`, et `tool/` si pertinent) : aucun `HttpClient`, `Image.network`, `NetworkImage`, `Uri.http`, `Uri.https`, `Socket`, `RawSocket`, `WebSocket`, `dart:html`, aucune URL `http(s)://` utilisée à l'exécution. Le partage, le presse-papiers et le sélecteur de fichiers restent déclenchés par l'utilisateur.
 4. **Ressources** : polices et images dans `assets/` et déclarées dans `pubspec.yaml` ; pas de `google_fonts` ni de chargement distant.
 5. **Sauvegardes et export** : l'export/import passe par le sélecteur du système, sans envoi automatique ; aucune donnée personnelle dans les journaux.
-6. **iOS** (`ios/Runner/Info.plist`, `*.entitlements`, `project.pbxproj`) : pas de `NSAppTransportSecurity` avec exceptions, pas de `NSLocalNetworkUsageDescription`/`NSBonjourServices`, pas de `UIBackgroundModes` réseau (`fetch`, `remote-notification`), pas d'entitlement iCloud, Push ou Associated Domains. La base et les photos sont exclues de la sauvegarde iCloud (`NSURLIsExcludedFromBackupKey`) quand ce code existe.
+6. **Plateformes** : aucun dossier `ios/` (ni autre plateforme que `android/`) ne doit réapparaître.
 7. **Script** `tool/check_offline.dart` : quand il existe, il couvre bien les trois contrôles de SPEC §1.5. Lance-le s'il y a un APK release.
 
 ## Verdict
