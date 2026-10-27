@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "popote/ingredients.schema.json",
+  "title": "Catalogue d'ingrédients Popote",
+  "type": "object",
+  "required": ["ingredients"],
+  "additionalProperties": false,
+  "properties": {
+    "ingredients": {
+      "type": "array",
+      "minItems": 250,
+      "maxItems": 400,
+      "items": { "$ref": "#/$defs/ingredient" }
+    }
+  },
+  "$defs": {
+    "ingredient": {
+      "type": "object",
+      "required": ["id", "name", "aisle", "defaultUnit", "pantry", "perishable", "markers", "allergens"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 2 },
+        "aisle": { "enum": ["produce", "meat_fish", "dairy", "savory", "sweet", "frozen", "bakery", "drinks", "misc"] },
+        "defaultUnit": { "enum": ["g", "ml", "piece", "tbsp", "tsp", "pinch"] },
+        "avgPieceWeightG": { "type": "number", "exclusiveMinimum": 0 },
+        "pantry": { "type": "boolean" },
+        "perishable": { "type": "boolean" },
+        "markers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["meat", "pork", "poultry", "fish", "seafood", "dairy", "egg", "honey", "gelatin", "alcohol"] }
+        },
+        "allergens": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["gluten", "crustaceans", "eggs", "fish", "peanuts", "soy", "milk", "nuts", "celery", "mustard", "sesame", "sulphites", "lupin", "molluscs"] }
+        },
+        "seasonMonths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+        }
+      }
+    }
+  }
+}

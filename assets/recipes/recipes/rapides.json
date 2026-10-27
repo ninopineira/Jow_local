@@ -1,0 +1,444 @@
+{
+"lot": "rapides",
+"recipes": [
+{
+"slug": "rapides-wraps-houmous-croquants",
+"title": "Wraps houmous et légumes croquants",
+"description": "Des wraps végétaux roulés en quelques minutes : houmous onctueux, carotte râpée, concombre et mâche, relevés de citron et de cumin.",
+"type": "main",
+"servings": 4,
+"prepMin": 15,
+"cookMin": 0,
+"difficulty": "easy",
+"equipment": [],
+"mainBase": "vegetables",
+"ingredients": [
+{"id":"tortilla-de-ble","qty":8,"unit":"piece"},
+{"id":"houmous","qty":240,"unit":"g"},
+{"id":"carotte","qty":3,"unit":"piece"},
+{"id":"concombre","qty":1,"unit":"piece"},
+{"id":"mache","qty":80,"unit":"g"},
+{"id":"citron","qty":1,"unit":"piece","note":"jus"},
+{"id":"cumin","qty":1,"unit":"tsp"},
+{"id":"graines-de-courge","qty":2,"unit":"tbsp","optional":true},
+{"id":"sel","qty":1,"unit":"pinch"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Râpez les carottes. Coupez le concombre en fins bâtonnets. Lavez et essorez la mâche.",
+"Mélangez le houmous avec le jus de citron, le cumin, le sel et le poivre.",
+"Réchauffez les tortillas 20 secondes dans une poêle sèche, ou laissez-les telles quelles.",
+"Étalez le houmous sur chaque tortilla, garnissez de carotte, de concombre, de mâche et de graines de courge.",
+"Roulez serré, coupez en deux en biais et servez aussitôt."
+]
+},
+{
+"slug": "rapides-nouilles-riz-sautees-tofu",
+"title": "Nouilles de riz sautées au tofu et gingembre",
+"description": "Nouilles de riz et tofu doré sautés au wok avec des légumes, du gingembre et du tamari. Un plat végane et sans gluten prêt en 20 minutes.",
+"type": "main",
+"servings": 4,
+"prepMin": 8,
+"cookMin": 12,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "tofu",
+"ingredients": [
+{"id":"nouilles-de-riz","qty":250,"unit":"g"},
+{"id":"tofu-ferme","qty":400,"unit":"g"},
+{"id":"melange-legumes-wok","qty":400,"unit":"g"},
+{"id":"gingembre","qty":20,"unit":"g"},
+{"id":"ail","qty":2,"unit":"piece"},
+{"id":"tamari","qty":3,"unit":"tbsp"},
+{"id":"huile-de-tournesol","qty":2,"unit":"tbsp"},
+{"id":"huile-de-sesame","qty":1,"unit":"tsp"},
+{"id":"citron-vert","qty":1,"unit":"piece"},
+{"id":"coriandre-fraiche","qty":10,"unit":"g","optional":true}
+],
+"steps": [
+"Faites tremper les nouilles de riz dans de l'eau bouillante selon le temps indiqué sur le paquet, puis égouttez-les.",
+"Coupez le tofu en dés et séchez-les avec du papier absorbant. Râpez le gingembre et hachez l'ail.",
+"Faites dorer le tofu 5 minutes dans l'huile de tournesol chaude, en remuant. Réservez-le.",
+"Dans la même poêle, faites sauter les légumes pour wok 4 minutes avec l'ail et le gingembre.",
+"Ajoutez les nouilles, le tofu, le tamari et l'huile de sésame. Mélangez 2 minutes.",
+"Servez avec un jus de citron vert et de la coriandre ciselée."
+]
+},
+{
+"slug": "rapides-salade-pois-chiches-concombre",
+"title": "Salade de pois chiches, concombre et herbes",
+"description": "Salade fraîche de pois chiches, concombre, tomates cerises et oignon rouge, avec une vinaigrette citronnée au cumin. Prête sans cuisson.",
+"type": "main",
+"servings": 4,
+"prepMin": 15,
+"cookMin": 0,
+"difficulty": "easy",
+"equipment": [],
+"mainBase": "legumes",
+"ingredients": [
+{"id":"pois-chiches-cuits","qty":480,"unit":"g","note":"égouttés et rincés"},
+{"id":"concombre","qty":1,"unit":"piece"},
+{"id":"tomate-cerise","qty":250,"unit":"g"},
+{"id":"oignon-rouge","qty":1,"unit":"piece"},
+{"id":"persil","qty":15,"unit":"g"},
+{"id":"menthe-fraiche","qty":8,"unit":"g"},
+{"id":"citron","qty":1,"unit":"piece","note":"jus"},
+{"id":"huile-d-olive","qty":3,"unit":"tbsp"},
+{"id":"cumin","qty":1,"unit":"tsp"},
+{"id":"sel","qty":1,"unit":"pinch"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Égouttez et rincez les pois chiches, puis séchez-les dans un torchon.",
+"Coupez le concombre en petits dés, les tomates cerises en deux et l'oignon rouge en fines lamelles.",
+"Préparez la vinaigrette en fouettant le jus de citron, l'huile d'olive, le cumin, le sel et le poivre.",
+"Mélangez tous les légumes et les pois chiches dans un saladier avec la vinaigrette.",
+"Ajoutez le persil et la menthe ciselés, mélangez et servez frais."
+]
+},
+{
+"slug": "rapides-soupe-lentilles-corail-coco",
+"title": "Soupe express de lentilles corail au lait de coco",
+"description": "Une soupe veloutée et réconfortante : les lentilles corail cuisent en 12 minutes avec la carotte, le curry et le lait de coco.",
+"type": "main",
+"servings": 4,
+"prepMin": 5,
+"cookMin": 15,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "legumes",
+"ingredients": [
+{"id":"lentilles-corail","qty":300,"unit":"g"},
+{"id":"carotte","qty":2,"unit":"piece"},
+{"id":"oignon-jaune","qty":1,"unit":"piece"},
+{"id":"ail","qty":2,"unit":"piece"},
+{"id":"huile-d-olive","qty":1,"unit":"tbsp"},
+{"id":"curry-en-poudre","qty":2,"unit":"tsp"},
+{"id":"bouillon-legumes-liquide","qty":800,"unit":"ml"},
+{"id":"lait-de-coco","qty":200,"unit":"ml"},
+{"id":"citron","qty":1,"unit":"piece","note":"jus"},
+{"id":"coriandre-fraiche","qty":10,"unit":"g","optional":true},
+{"id":"sel","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Émincez l'oignon, coupez la carotte en petits dés et hachez l'ail. Rincez les lentilles.",
+"Faites revenir l'oignon, la carotte et l'ail 3 minutes dans l'huile d'olive avec le curry.",
+"Ajoutez les lentilles et le bouillon, portez à ébullition puis laissez cuire 12 minutes à frémissement.",
+"Versez le lait de coco et mixez grossièrement avec un mixeur plongeant, ou laissez en l'état.",
+"Rectifiez l'assaisonnement, ajoutez le jus de citron et servez avec de la coriandre."
+]
+},
+{
+"slug": "rapides-tartines-avocat-haricots-noirs",
+"title": "Tartines avocat, haricots noirs et maïs",
+"description": "Des tartines de pain de campagne grillées, garnies d'avocat écrasé, de haricots noirs épicés et de maïs. Un repas végane vite fait.",
+"type": "main",
+"servings": 4,
+"prepMin": 12,
+"cookMin": 6,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "legumes",
+"ingredients": [
+{"id":"pain-de-campagne","qty":400,"unit":"g","note":"8 tranches"},
+{"id":"avocat","qty":2,"unit":"piece"},
+{"id":"haricots-noirs","qty":400,"unit":"g","note":"égouttés"},
+{"id":"mais-doux","qty":150,"unit":"g"},
+{"id":"citron-vert","qty":1,"unit":"piece"},
+{"id":"oignon-rouge","qty":1,"unit":"piece"},
+{"id":"paprika-fume","qty":1,"unit":"tsp"},
+{"id":"cumin","qty":1,"unit":"tsp"},
+{"id":"huile-d-olive","qty":2,"unit":"tbsp"},
+{"id":"coriandre-fraiche","qty":10,"unit":"g","optional":true},
+{"id":"sel","qty":1,"unit":"pinch"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Faites griller les tranches de pain à la poêle avec un peu d'huile d'olive, 2 minutes de chaque côté.",
+"Réchauffez les haricots noirs et le maïs 4 minutes dans une poêle avec le paprika fumé, le cumin et le sel.",
+"Écrasez les avocats à la fourchette avec le jus de citron vert, le sel et le poivre.",
+"Émincez finement l'oignon rouge et ciselez la coriandre.",
+"Tartinez le pain d'avocat, garnissez de haricots noirs et de maïs, puis parsemez d'oignon et de coriandre."
+]
+},
+{
+"slug": "rapides-quesadillas-poivron-cheddar",
+"title": "Quesadillas poivron, haricots rouges et cheddar",
+"description": "Des tortillas dorées à la poêle, fourrées de cheddar fondant, de poivron et de haricots rouges au paprika. Croustillantes et gourmandes.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 10,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "cheese",
+"ingredients": [
+{"id":"tortilla-de-ble","qty":8,"unit":"piece"},
+{"id":"cheddar","qty":200,"unit":"g","note":"râpé"},
+{"id":"poivron-rouge","qty":2,"unit":"piece"},
+{"id":"haricots-rouges","qty":240,"unit":"g","note":"égouttés"},
+{"id":"mais-doux","qty":100,"unit":"g"},
+{"id":"oignon-nouveau","qty":3,"unit":"piece"},
+{"id":"paprika","qty":1,"unit":"tsp"},
+{"id":"huile-d-olive","qty":1,"unit":"tbsp"},
+{"id":"creme-epaisse","qty":100,"unit":"g","optional":true,"note":"pour servir"}
+],
+"steps": [
+"Coupez les poivrons en fines lanières et émincez les oignons nouveaux.",
+"Faites sauter les poivrons 4 minutes dans l'huile d'olive avec le paprika, puis mélangez-les aux haricots rouges, au maïs et aux oignons nouveaux.",
+"Répartissez le cheddar et la garniture sur la moitié de chaque tortilla, puis repliez.",
+"Faites dorer les quesadillas 2 minutes de chaque côté dans une poêle sèche, jusqu'à ce que le fromage fonde.",
+"Coupez en triangles et servez avec un peu de crème épaisse."
+]
+},
+{
+"slug": "rapides-omelette-courgette-feta",
+"title": "Omelette courgette, feta et menthe",
+"description": "Une grande omelette moelleuse aux courgettes sautées, à la feta et à la menthe, servie avec une salade verte. Sans gluten.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 10,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "eggs",
+"ingredients": [
+{"id":"oeuf","qty":8,"unit":"piece"},
+{"id":"courgette","qty":2,"unit":"piece"},
+{"id":"feta","qty":150,"unit":"g"},
+{"id":"menthe-fraiche","qty":8,"unit":"g"},
+{"id":"oignon-nouveau","qty":3,"unit":"piece"},
+{"id":"huile-d-olive","qty":2,"unit":"tbsp"},
+{"id":"laitue","qty":1,"unit":"piece"},
+{"id":"citron","qty":1,"unit":"piece","note":"jus pour la salade"},
+{"id":"sel","qty":1,"unit":"pinch"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Coupez les courgettes en petits dés et émincez les oignons nouveaux.",
+"Faites-les revenir 5 minutes dans une grande poêle avec la moitié de l'huile d'olive, jusqu'à ce qu'ils soient tendres.",
+"Battez les œufs avec le sel et le poivre, puis ajoutez la feta émiettée et la menthe ciselée.",
+"Versez les œufs sur les légumes et laissez cuire 4 minutes à feu doux, puis retournez l'omelette à l'aide d'une assiette et poursuivez 1 minute.",
+"Assaisonnez la salade avec le reste d'huile et le jus de citron, puis servez l'omelette coupée en parts."
+]
+},
+{
+"slug": "rapides-salade-halloumi-orange-mache",
+"title": "Salade tiède de halloumi, orange et mâche",
+"description": "Halloumi doré à la poêle, quartiers d'orange, mâche et noix, avec une vinaigrette au miel. Une salade complète d'hiver, sans gluten.",
+"type": "main",
+"servings": 4,
+"prepMin": 12,
+"cookMin": 6,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "cheese",
+"ingredients": [
+{"id":"halloumi","qty":250,"unit":"g"},
+{"id":"mache","qty":150,"unit":"g"},
+{"id":"orange","qty":2,"unit":"piece"},
+{"id":"noix","qty":50,"unit":"g"},
+{"id":"betterave-cuite","qty":3,"unit":"piece"},
+{"id":"miel","qty":1,"unit":"tbsp"},
+{"id":"huile-d-olive","qty":3,"unit":"tbsp"},
+{"id":"vinaigre-balsamique","qty":1,"unit":"tbsp"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Pelez les oranges à vif et coupez-les en quartiers. Coupez les betteraves en dés.",
+"Coupez le halloumi en tranches épaisses et faites-le dorer 2 à 3 minutes de chaque côté dans une poêle avec un filet d'huile.",
+"Faites griller les noix à sec quelques instants dans la poêle chaude, puis concassez-les.",
+"Fouettez le miel, le vinaigre balsamique, le reste d'huile d'olive et le poivre.",
+"Dressez la mâche, les betteraves, l'orange et le halloumi tiède, puis versez la vinaigrette et parsemez de noix."
+]
+},
+{
+"slug": "rapides-poelee-cabillaud-haricots-verts",
+"title": "Cabillaud poêlé et haricots verts à l'ail",
+"description": "Dos de cabillaud moelleux poêlé au citron, accompagné de haricots verts croquants sautés à l'ail et au persil. Léger et sans gluten.",
+"type": "main",
+"servings": 4,
+"prepMin": 8,
+"cookMin": 12,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "fish",
+"ingredients": [
+{"id":"cabillaud","qty":4,"unit":"piece"},
+{"id":"haricot-vert","qty":500,"unit":"g"},
+{"id":"ail","qty":3,"unit":"piece"},
+{"id":"citron","qty":1,"unit":"piece"},
+{"id":"persil","qty":10,"unit":"g"},
+{"id":"huile-d-olive","qty":3,"unit":"tbsp"},
+{"id":"beurre","qty":20,"unit":"g"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Équeutez les haricots verts et plongez-les 6 minutes dans de l'eau bouillante salée, puis égouttez-les.",
+"Salez et poivrez les dos de cabillaud. Faites-les cuire 4 minutes côté peau dans une poêle avec 1 cuillère à soupe d'huile.",
+"Retournez-les, ajoutez le beurre et laissez cuire 3 minutes en les arrosant, puis pressez un demi-citron dessus.",
+"Dans une autre poêle, faites sauter les haricots verts 3 minutes avec le reste d'huile et l'ail haché.",
+"Servez le poisson avec les haricots, du persil haché et le demi-citron restant en quartiers."
+]
+},
+{
+"slug": "rapides-wraps-saumon-fume-concombre",
+"title": "Wraps saumon fumé, concombre et aneth",
+"description": "Des wraps frais sans cuisson : saumon fumé, fromage frais à tartiner citronné, concombre croquant et aneth. Idéal pour un repas d'été.",
+"type": "main",
+"servings": 4,
+"prepMin": 15,
+"cookMin": 0,
+"difficulty": "easy",
+"equipment": [],
+"mainBase": "fish",
+"ingredients": [
+{"id":"tortilla-de-ble","qty":8,"unit":"piece"},
+{"id":"saumon-fume","qty":400,"unit":"g"},
+{"id":"fromage-frais-a-tartiner","qty":150,"unit":"g"},
+{"id":"concombre","qty":1,"unit":"piece"},
+{"id":"aneth","qty":10,"unit":"g"},
+{"id":"citron","qty":1,"unit":"piece","note":"jus et zeste"},
+{"id":"roquette","qty":60,"unit":"g"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Mélangez le fromage frais avec le jus et le zeste du citron, l'aneth ciselé et le poivre.",
+"Coupez le concombre en fins bâtonnets.",
+"Étalez le fromage frais sur chaque tortilla en laissant un bord libre.",
+"Disposez le saumon fumé, le concombre et la roquette au centre.",
+"Roulez fermement, coupez en deux en biais et servez frais."
+]
+},
+{
+"slug": "rapides-poulet-saute-cacahuete-vermicelles",
+"title": "Poulet sauté sauce cacahuète et vermicelles",
+"description": "Lamelles de poulet et légumes sautés, vermicelles de riz et sauce cacahuète au citron vert. Un wok express sans gluten.",
+"type": "main",
+"servings": 4,
+"prepMin": 8,
+"cookMin": 12,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "poultry",
+"ingredients": [
+{"id":"poulet-blanc","qty":500,"unit":"g"},
+{"id":"vermicelles-de-riz","qty":250,"unit":"g"},
+{"id":"melange-legumes-wok","qty":400,"unit":"g"},
+{"id":"beurre-de-cacahuete","qty":3,"unit":"tbsp"},
+{"id":"tamari","qty":3,"unit":"tbsp"},
+{"id":"citron-vert","qty":1,"unit":"piece"},
+{"id":"ail","qty":2,"unit":"piece"},
+{"id":"huile-de-tournesol","qty":2,"unit":"tbsp"},
+{"id":"eau","qty":80,"unit":"ml"},
+{"id":"cacahuetes","qty":30,"unit":"g","optional":true,"note":"concassées"}
+],
+"steps": [
+"Plongez les vermicelles dans de l'eau bouillante pendant 3 minutes, égouttez-les et rincez-les à l'eau froide.",
+"Coupez le poulet en fines lamelles. Mélangez le beurre de cacahuète, le tamari, le jus du citron vert et l'eau pour obtenir la sauce.",
+"Faites dorer le poulet 5 minutes dans l'huile chaude, avec l'ail haché, en remuant. Réservez-le.",
+"Faites sauter les légumes pour wok 4 minutes dans la même poêle.",
+"Remettez le poulet, ajoutez les vermicelles et la sauce, mélangez 2 minutes et servez avec les cacahuètes."
+]
+},
+{
+"slug": "rapides-pitas-dinde-yaourt-menthe",
+"title": "Pitas de dinde, yaourt à la menthe et crudités",
+"description": "Lamelles de dinde épicées glissées dans un pain pita avec une sauce au yaourt, de la menthe, de la carotte et de la salade.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 8,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "poultry",
+"ingredients": [
+{"id":"escalope-de-dinde","qty":500,"unit":"g"},
+{"id":"pain-pita","qty":4,"unit":"piece"},
+{"id":"yaourt-grec","qty":200,"unit":"g"},
+{"id":"menthe-fraiche","qty":8,"unit":"g"},
+{"id":"concombre","qty":1,"unit":"piece"},
+{"id":"carotte","qty":2,"unit":"piece"},
+{"id":"oignon-rouge","qty":1,"unit":"piece"},
+{"id":"laitue","qty":1,"unit":"piece"},
+{"id":"paprika","qty":1,"unit":"tsp"},
+{"id":"cumin","qty":1,"unit":"tsp"},
+{"id":"huile-d-olive","qty":2,"unit":"tbsp"},
+{"id":"citron","qty":1,"unit":"piece","note":"jus"},
+{"id":"sel","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Coupez la dinde en fines lamelles et enrobez-les de paprika, de cumin, de sel et d'une cuillère d'huile.",
+"Mélangez le yaourt avec la menthe ciselée, le jus de citron et une pincée de sel.",
+"Râpez les carottes, émincez l'oignon rouge, coupez le concombre en rondelles et la laitue en lanières.",
+"Faites cuire la dinde 6 minutes dans une poêle bien chaude avec le reste d'huile, en remuant.",
+"Réchauffez les pitas, ouvrez-les et garnissez-les de salade, de crudités, de dinde et de sauce au yaourt."
+]
+},
+{
+"slug": "rapides-boeuf-saute-pak-choi-nouilles",
+"title": "Bœuf sauté au pak-choï et nouilles de riz",
+"description": "Fines lamelles de bœuf saisies au gingembre et à l'ail, pak-choï croquant et nouilles de riz nappées de tamari. Sans gluten.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 10,
+"difficulty": "medium",
+"equipment": ["hob"],
+"mainBase": "beef",
+"ingredients": [
+{"id":"steak-de-boeuf","qty":4,"unit":"piece"},
+{"id":"nouilles-de-riz","qty":250,"unit":"g"},
+{"id":"pak-choi","qty":3,"unit":"piece"},
+{"id":"gingembre","qty":15,"unit":"g"},
+{"id":"ail","qty":2,"unit":"piece"},
+{"id":"tamari","qty":3,"unit":"tbsp"},
+{"id":"huile-de-tournesol","qty":2,"unit":"tbsp"},
+{"id":"huile-de-sesame","qty":1,"unit":"tsp"},
+{"id":"oignon-nouveau","qty":3,"unit":"piece"},
+{"id":"graines-de-sesame","qty":1,"unit":"tbsp","optional":true}
+],
+"steps": [
+"Faites tremper les nouilles de riz dans de l'eau bouillante selon le temps indiqué sur le paquet, puis égouttez-les.",
+"Tranchez le bœuf en fines lamelles. Coupez le pak-choï en morceaux, hachez l'ail et le gingembre, émincez les oignons nouveaux.",
+"Saisissez le bœuf 2 minutes à feu vif dans l'huile de tournesol, avec l'ail et le gingembre, puis réservez-le.",
+"Faites sauter le pak-choï 3 minutes dans la même poêle.",
+"Ajoutez les nouilles, le bœuf, le tamari et l'huile de sésame, mélangez 1 minute.",
+"Parsemez d'oignons nouveaux et de graines de sésame avant de servir."
+]
+},
+{
+"slug": "rapides-cotes-porc-moutarde-pommes",
+"title": "Côtes de porc moutarde et pommes poêlées",
+"description": "Côtes de porc dorées, sauce crémeuse à la moutarde à l'ancienne et pommes poêlées au beurre, avec une salade de mâche. Sans gluten.",
+"type": "main",
+"servings": 4,
+"prepMin": 8,
+"cookMin": 12,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "pork",
+"ingredients": [
+{"id":"cote-de-porc","qty":4,"unit":"piece"},
+{"id":"pomme","qty":3,"unit":"piece"},
+{"id":"echalote","qty":2,"unit":"piece"},
+{"id":"moutarde-a-l-ancienne","qty":2,"unit":"tsp"},
+{"id":"creme-liquide","qty":150,"unit":"ml"},
+{"id":"beurre","qty":20,"unit":"g"},
+{"id":"huile-d-olive","qty":1,"unit":"tbsp"},
+{"id":"mache","qty":100,"unit":"g"},
+{"id":"thym-sec","qty":1,"unit":"tsp"},
+{"id":"sel","qty":1,"unit":"pinch"},
+{"id":"poivre","qty":1,"unit":"pinch"}
+],
+"steps": [
+"Salez et poivrez les côtes de porc. Faites-les dorer 4 minutes de chaque côté dans l'huile d'olive, puis réservez-les au chaud.",
+"Coupez les pommes en quartiers et faites-les dorer 5 minutes dans le beurre avec le thym, dans une autre poêle.",
+"Faites revenir l'échalote émincée 1 minute dans la poêle des côtes.",
+"Ajoutez la crème et la moutarde, laissez épaissir 2 minutes à feu doux, puis remettez les côtes pour les napper.",
+"Servez avec les pommes et la mâche assaisonnée d'un filet d'huile."
+]
+}
+]
+}

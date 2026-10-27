@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Seul le fichier temporaire de l'appareil photo est partagé, avec l'app
+     photo choisie par l'utilisateur. -->
+<paths>
+    <cache-path name="camera" path="camera/" />
+</paths>

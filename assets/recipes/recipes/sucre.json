@@ -1,0 +1,503 @@
+{
+  "lot": "sucre",
+  "recipes": [
+    {
+      "slug": "sucre-crumble-pommes-poires",
+      "title": "Crumble pommes-poires à l'avoine",
+      "description": "Un crumble végétal aux fruits d'automne, avec une pâte croustillante à l'avoine et à la cannelle.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 15,
+      "cookMin": 35,
+      "difficulty": "easy",
+      "equipment": ["oven"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "pomme", "qty": 4, "unit": "piece", "note": "à peler et couper en dés"},
+        {"id": "poire", "qty": 2, "unit": "piece", "note": "à peler et couper en dés"},
+        {"id": "farine-de-ble", "qty": 100, "unit": "g"},
+        {"id": "flocons-d-avoine", "qty": 60, "unit": "g"},
+        {"id": "margarine-vegetale", "qty": 90, "unit": "g", "note": "froide, en morceaux"},
+        {"id": "sucre-roux", "qty": 70, "unit": "g"},
+        {"id": "cannelle", "qty": 1, "unit": "tsp"},
+        {"id": "jus-de-citron", "qty": 30, "unit": "ml"}
+      ],
+      "steps": [
+        "Préchauffer le four à 180 °C.",
+        "Peler les pommes et les poires, les couper en dés et les mélanger avec le jus de citron et la moitié de la cannelle. Les répartir dans un plat à gratin.",
+        "Dans un saladier, mélanger la farine, les flocons d'avoine, le sucre roux et le reste de cannelle.",
+        "Ajouter la margarine froide et sabler du bout des doigts jusqu'à obtenir une pâte grumeleuse.",
+        "Émietter la pâte sur les fruits sans la tasser.",
+        "Enfourner 35 minutes, jusqu'à ce que le dessus soit doré. Servir tiède."
+      ]
+    },
+    {
+      "slug": "sucre-clafoutis-cerises",
+      "title": "Clafoutis aux cerises sans gluten",
+      "description": "Un clafoutis moelleux préparé à la farine de riz, avec des cerises de saison et une pointe de vanille.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 15,
+      "cookMin": 35,
+      "difficulty": "easy",
+      "equipment": ["oven"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "cerise", "qty": 500, "unit": "g", "note": "lavées et équeutées"},
+        {"id": "oeuf", "qty": 3, "unit": "piece"},
+        {"id": "sucre", "qty": 80, "unit": "g"},
+        {"id": "farine-de-riz", "qty": 70, "unit": "g"},
+        {"id": "maizena", "qty": 1, "unit": "tbsp"},
+        {"id": "lait-entier", "qty": 250, "unit": "ml"},
+        {"id": "extrait-de-vanille", "qty": 1, "unit": "tsp"},
+        {"id": "beurre", "qty": 15, "unit": "g", "note": "pour le plat"}
+      ],
+      "steps": [
+        "Préchauffer le four à 180 °C et beurrer un plat à gratin.",
+        "Répartir les cerises dans le plat.",
+        "Fouetter les œufs avec le sucre, puis ajouter la farine de riz et la Maïzena.",
+        "Verser le lait et la vanille en fouettant pour obtenir une pâte lisse.",
+        "Verser la pâte sur les cerises.",
+        "Enfourner 35 minutes, jusqu'à ce que le clafoutis soit gonflé et doré. Laisser tiédir avant de servir."
+      ]
+    },
+    {
+      "slug": "sucre-mousse-chocolat-coco",
+      "title": "Mousse au chocolat et lait de coco",
+      "description": "Une mousse végétale onctueuse à base de chocolat noir et de lait de coco, sans œuf ni produit laitier.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 5,
+      "difficulty": "medium",
+      "equipment": ["hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "chocolat-noir", "qty": 200, "unit": "g", "note": "en morceaux"},
+        {"id": "lait-de-coco", "qty": 400, "unit": "ml", "note": "boîte laissée une nuit au frais, partie épaisse seulement"},
+        {"id": "sirop-d-agave", "qty": 2, "unit": "tbsp"},
+        {"id": "extrait-de-vanille", "qty": 1, "unit": "tsp"},
+        {"id": "framboise", "qty": 100, "unit": "g", "optional": true, "note": "pour décorer"}
+      ],
+      "steps": [
+        "Ouvrir la boîte de lait de coco gardée au frais et prélever uniquement la partie épaisse. Garder le liquide pour un autre usage.",
+        "Chauffer doucement la moitié de cette crème de coco dans une casserole, sans bouillir. Hors du feu, y faire fondre le chocolat en remuant.",
+        "Ajouter le sirop d'agave et la vanille, puis laisser tiédir 10 minutes.",
+        "Fouetter le reste de la crème de coco froide jusqu'à ce qu'elle soit aérienne.",
+        "Incorporer délicatement la crème fouettée au chocolat tiède, en soulevant la masse.",
+        "Répartir dans quatre verrines et réserver au frais au moins 2 heures. Décorer de framboises."
+      ]
+    },
+    {
+      "slug": "sucre-compote-fraises-rhubarbe",
+      "title": "Compote fraises-rhubarbe",
+      "description": "Une compote de printemps acidulée, mijotée en vingt minutes, à servir tiède ou bien froide.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 15,
+      "difficulty": "easy",
+      "equipment": ["hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "rhubarbe", "qty": 500, "unit": "g", "note": "effilée et coupée en tronçons"},
+        {"id": "fraise", "qty": 400, "unit": "g", "note": "équeutées et coupées en deux"},
+        {"id": "sucre", "qty": 80, "unit": "g"},
+        {"id": "eau", "qty": 50, "unit": "ml"},
+        {"id": "extrait-de-vanille", "qty": 1, "unit": "tsp"}
+      ],
+      "steps": [
+        "Effiler la rhubarbe et la couper en tronçons de 2 cm. Équeuter et couper les fraises.",
+        "Mettre la rhubarbe, le sucre et l'eau dans une casserole. Cuire à feu moyen 10 minutes en remuant de temps en temps.",
+        "Ajouter les fraises et cuire encore 5 minutes à feu doux.",
+        "Hors du feu, ajouter la vanille. Écraser à la fourchette selon la texture souhaitée.",
+        "Servir tiède ou froid."
+      ]
+    },
+    {
+      "slug": "sucre-riz-au-lait-vanille",
+      "title": "Riz au lait à la vanille",
+      "description": "Le riz au lait crémeux de la maison, parfumé à la vanille et mijoté doucement à la casserole.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 5,
+      "cookMin": 40,
+      "difficulty": "easy",
+      "equipment": ["hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "riz-rond", "qty": 150, "unit": "g"},
+        {"id": "lait-entier", "qty": 1000, "unit": "ml"},
+        {"id": "sucre", "qty": 70, "unit": "g"},
+        {"id": "gousse-de-vanille", "qty": 1, "unit": "piece", "note": "fendue et grattée"},
+        {"id": "sel", "qty": 1, "unit": "pinch"}
+      ],
+      "steps": [
+        "Rincer le riz à l'eau froide et l'égoutter.",
+        "Porter le lait à frémissement avec la gousse de vanille fendue, ses graines et une pincée de sel.",
+        "Ajouter le riz et cuire à feu très doux 35 à 40 minutes, en remuant souvent pour éviter qu'il accroche.",
+        "Ajouter le sucre 5 minutes avant la fin de cuisson et mélanger.",
+        "Retirer la gousse. Servir tiède ou froid."
+      ]
+    },
+    {
+      "slug": "sucre-peches-roties-amandes",
+      "title": "Pêches rôties aux amandes",
+      "description": "Des pêches d'été rôties au four avec du sirop d'agave, de la vanille et des amandes effilées croquantes.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 20,
+      "difficulty": "easy",
+      "equipment": ["oven"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "peche", "qty": 4, "unit": "piece", "note": "mûres mais fermes, coupées en deux et dénoyautées"},
+        {"id": "sirop-d-agave", "qty": 3, "unit": "tbsp"},
+        {"id": "amandes-effilees", "qty": 40, "unit": "g"},
+        {"id": "huile-de-coco", "qty": 1, "unit": "tbsp", "note": "fondue"},
+        {"id": "extrait-de-vanille", "qty": 1, "unit": "tsp"},
+        {"id": "cannelle", "qty": 1, "unit": "pinch"}
+      ],
+      "steps": [
+        "Préchauffer le four à 200 °C.",
+        "Disposer les demi-pêches, face coupée vers le haut, dans un plat à four.",
+        "Mélanger le sirop d'agave, l'huile de coco fondue, la vanille et la cannelle, puis en napper les pêches.",
+        "Enfourner 15 minutes, parsemer d'amandes effilées et poursuivre 5 minutes.",
+        "Servir tiède avec le jus de cuisson."
+      ]
+    },
+    {
+      "slug": "sucre-gateau-yaourt-citron",
+      "title": "Gâteau au yaourt et au citron",
+      "description": "Le gâteau de tous les jours, moelleux et frais, mesuré avec le pot de yaourt et parfumé au citron.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 15,
+      "cookMin": 35,
+      "difficulty": "easy",
+      "equipment": ["oven"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "yaourt-nature", "qty": 1, "unit": "piece", "note": "un pot, à garder pour mesurer"},
+        {"id": "farine-de-ble", "qty": 200, "unit": "g"},
+        {"id": "sucre", "qty": 150, "unit": "g"},
+        {"id": "oeuf", "qty": 3, "unit": "piece"},
+        {"id": "huile-de-tournesol", "qty": 100, "unit": "ml"},
+        {"id": "levure-chimique", "qty": 2, "unit": "tsp"},
+        {"id": "citron", "qty": 2, "unit": "piece", "note": "zeste des deux, jus d'un seul"}
+      ],
+      "steps": [
+        "Préchauffer le four à 180 °C et huiler un moule à cake.",
+        "Fouetter le yaourt, le sucre et les œufs, puis ajouter l'huile, le zeste et le jus d'un citron.",
+        "Mélanger la farine et la levure, puis les incorporer à la préparation sans trop travailler la pâte.",
+        "Verser dans le moule et enfourner 35 minutes. Vérifier la cuisson avec la pointe d'un couteau.",
+        "Laisser tiédir 10 minutes avant de démouler."
+      ]
+    },
+    {
+      "slug": "sucre-panna-cotta-coco-fruits-rouges",
+      "title": "Panna cotta coco et fruits rouges",
+      "description": "Une panna cotta végane au lait de coco, prise à l'agar-agar et nappée d'un coulis de fruits rouges.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 5,
+      "difficulty": "medium",
+      "equipment": ["hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "lait-de-coco", "qty": 400, "unit": "ml"},
+        {"id": "lait-de-riz", "qty": 200, "unit": "ml"},
+        {"id": "sucre", "qty": 50, "unit": "g"},
+        {"id": "agar-agar", "qty": 1, "unit": "tsp"},
+        {"id": "extrait-de-vanille", "qty": 1, "unit": "tsp"},
+        {"id": "fruits-rouges-surgeles", "qty": 250, "unit": "g", "note": "décongelés"},
+        {"id": "sirop-d-agave", "qty": 1, "unit": "tbsp"}
+      ],
+      "steps": [
+        "Verser le lait de coco, le lait de riz, le sucre et l'agar-agar dans une casserole. Fouetter à froid.",
+        "Porter à ébullition en remuant, puis laisser bouillir 2 minutes. Hors du feu, ajouter la vanille.",
+        "Répartir dans quatre verrines et laisser refroidir, puis réserver au frais au moins 3 heures pour la prise.",
+        "Écraser les fruits rouges avec le sirop d'agave pour obtenir un coulis grossier.",
+        "Napper chaque panna cotta de coulis juste avant de servir."
+      ]
+    },
+    {
+      "slug": "sucre-fondant-chocolat-amandes",
+      "title": "Fondant au chocolat et aux amandes",
+      "description": "Un gâteau fondant sans gluten, riche en chocolat noir, allégé par la poudre d'amande à la place de la farine.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 15,
+      "cookMin": 20,
+      "difficulty": "medium",
+      "equipment": ["oven", "hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "chocolat-noir", "qty": 150, "unit": "g", "note": "en morceaux"},
+        {"id": "beurre", "qty": 100, "unit": "g"},
+        {"id": "oeuf", "qty": 3, "unit": "piece"},
+        {"id": "sucre", "qty": 100, "unit": "g"},
+        {"id": "poudre-d-amande", "qty": 60, "unit": "g"},
+        {"id": "sel", "qty": 1, "unit": "pinch"}
+      ],
+      "steps": [
+        "Préchauffer le four à 180 °C et chemiser un moule à manqué de papier cuisson.",
+        "Faire fondre le chocolat et le beurre à feu très doux dans une casserole, en remuant. Laisser tiédir.",
+        "Fouetter les œufs avec le sucre et le sel jusqu'à ce que le mélange blanchisse.",
+        "Incorporer le chocolat fondu, puis la poudre d'amande.",
+        "Verser dans le moule et enfourner 20 minutes : le centre doit rester légèrement tremblant.",
+        "Laisser refroidir 15 minutes avant de démouler."
+      ]
+    },
+    {
+      "slug": "sucre-nice-cream-banane-cacao",
+      "title": "Glace express banane-cacao",
+      "description": "Une glace végane sans sorbetière : bananes surgelées mixées avec du cacao et un peu de lait d'amande.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 0,
+      "difficulty": "easy",
+      "equipment": ["blender"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "banane-surgelee", "qty": 600, "unit": "g"},
+        {"id": "cacao-en-poudre", "qty": 2, "unit": "tbsp"},
+        {"id": "lait-d-amande", "qty": 80, "unit": "ml"},
+        {"id": "sirop-d-erable", "qty": 1, "unit": "tbsp", "optional": true},
+        {"id": "noisettes", "qty": 30, "unit": "g", "optional": true, "note": "concassées, pour servir"}
+      ],
+      "steps": [
+        "Sortir les bananes du congélateur 5 minutes avant de les mixer.",
+        "Les mettre dans le mixeur avec le cacao, le lait d'amande et le sirop d'érable.",
+        "Mixer en raclant les parois jusqu'à obtenir une texture lisse de glace italienne.",
+        "Servir aussitôt en boules, parsemé de noisettes concassées, ou garder 30 minutes au congélateur pour une texture plus ferme."
+      ]
+    },
+    {
+      "slug": "sucre-cookies-avoine-pepites",
+      "title": "Cookies véganes avoine et pépites",
+      "description": "Des cookies moelleux à l'avoine, à la margarine et aux pépites de chocolat, sans œuf ni lait.",
+      "type": "dessert",
+      "servings": 4,
+      "prepMin": 15,
+      "cookMin": 12,
+      "difficulty": "easy",
+      "equipment": ["oven"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "farine-de-ble", "qty": 150, "unit": "g"},
+        {"id": "flocons-d-avoine", "qty": 80, "unit": "g"},
+        {"id": "margarine-vegetale", "qty": 100, "unit": "g", "note": "ramollie"},
+        {"id": "sucre-roux", "qty": 100, "unit": "g"},
+        {"id": "lait-de-soja", "qty": 45, "unit": "ml"},
+        {"id": "levure-chimique", "qty": 1, "unit": "tsp"},
+        {"id": "pepites-de-chocolat", "qty": 100, "unit": "g"},
+        {"id": "extrait-de-vanille", "qty": 1, "unit": "tsp"}
+      ],
+      "steps": [
+        "Préchauffer le four à 180 °C et recouvrir une plaque de papier cuisson.",
+        "Travailler la margarine ramollie avec le sucre roux, le lait de soja et la vanille.",
+        "Ajouter la farine, la levure et les flocons d'avoine, puis mélanger rapidement.",
+        "Incorporer les pépites de chocolat.",
+        "Former 12 boules sur la plaque en les espaçant et les aplatir légèrement.",
+        "Enfourner 12 minutes : les bords doivent être dorés, le centre encore tendre. Laisser durcir 5 minutes sur la plaque."
+      ]
+    },
+    {
+      "slug": "sucre-porridge-pomme-cannelle",
+      "title": "Porridge pomme-cannelle",
+      "description": "Un porridge chaud sans gluten aux flocons d'avoine, aux pommes râpées et à la cannelle.",
+      "type": "breakfast",
+      "servings": 4,
+      "prepMin": 5,
+      "cookMin": 10,
+      "difficulty": "easy",
+      "equipment": ["hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "flocons-d-avoine-sans-gluten", "qty": 160, "unit": "g"},
+        {"id": "lait-de-soja", "qty": 800, "unit": "ml"},
+        {"id": "pomme", "qty": 2, "unit": "piece", "note": "râpées avec la peau"},
+        {"id": "cannelle", "qty": 1, "unit": "tsp"},
+        {"id": "sirop-d-erable", "qty": 2, "unit": "tbsp"},
+        {"id": "noix", "qty": 40, "unit": "g", "optional": true, "note": "concassées, pour servir"}
+      ],
+      "steps": [
+        "Râper les pommes. Verser les flocons et le lait de soja dans une casserole.",
+        "Chauffer à feu moyen en remuant, puis ajouter les pommes râpées et la cannelle.",
+        "Laisser mijoter 8 à 10 minutes en remuant, jusqu'à ce que le porridge épaississe.",
+        "Répartir dans quatre bols, ajouter un filet de sirop d'érable et les noix concassées."
+      ]
+    },
+    {
+      "slug": "sucre-pancakes-banane",
+      "title": "Pancakes moelleux à la banane",
+      "description": "De petits pancakes épais à la banane écrasée, cuits à la poêle, à garnir de fruits et de sirop.",
+      "type": "breakfast",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 15,
+      "difficulty": "easy",
+      "equipment": ["hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "farine-de-ble", "qty": 220, "unit": "g"},
+        {"id": "banane", "qty": 2, "unit": "piece", "note": "bien mûres"},
+        {"id": "oeuf", "qty": 2, "unit": "piece"},
+        {"id": "lait-demi-ecreme", "qty": 300, "unit": "ml"},
+        {"id": "levure-chimique", "qty": 2, "unit": "tsp"},
+        {"id": "sucre", "qty": 30, "unit": "g"},
+        {"id": "beurre", "qty": 20, "unit": "g", "note": "pour la poêle"},
+        {"id": "sirop-d-erable", "qty": 4, "unit": "tbsp", "optional": true, "note": "pour servir"}
+      ],
+      "steps": [
+        "Écraser les bananes à la fourchette dans un saladier, puis ajouter les œufs, le lait et le sucre.",
+        "Ajouter la farine et la levure, et mélanger juste assez pour obtenir une pâte épaisse (quelques grumeaux sont normaux).",
+        "Faire fondre un peu de beurre dans une poêle antiadhésive à feu moyen.",
+        "Verser une petite louche de pâte et cuire 2 minutes, jusqu'à l'apparition de bulles, puis retourner et cuire 1 à 2 minutes.",
+        "Répéter avec le reste de pâte et garder les pancakes au chaud. Servir avec le sirop d'érable."
+      ]
+    },
+    {
+      "slug": "sucre-granola-maison-erable",
+      "title": "Granola maison à l'érable",
+      "description": "Un granola végane croustillant aux noix, aux graines et au sirop d'érable, pour plusieurs petits-déjeuners.",
+      "type": "breakfast",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 25,
+      "difficulty": "easy",
+      "equipment": ["oven"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "flocons-d-avoine", "qty": 250, "unit": "g"},
+        {"id": "noix", "qty": 60, "unit": "g", "note": "concassées"},
+        {"id": "graines-de-courge", "qty": 40, "unit": "g"},
+        {"id": "graines-de-tournesol", "qty": 40, "unit": "g"},
+        {"id": "sirop-d-erable", "qty": 5, "unit": "tbsp"},
+        {"id": "huile-de-coco", "qty": 3, "unit": "tbsp", "note": "fondue"},
+        {"id": "cannelle", "qty": 1, "unit": "tsp"},
+        {"id": "raisins-secs", "qty": 50, "unit": "g"}
+      ],
+      "steps": [
+        "Préchauffer le four à 160 °C et recouvrir une plaque de papier cuisson.",
+        "Mélanger dans un saladier les flocons, les noix, les graines et la cannelle.",
+        "Ajouter le sirop d'érable et l'huile de coco fondue, puis bien mélanger pour enrober.",
+        "Étaler sur la plaque et enfourner 25 minutes, en remuant à mi-cuisson.",
+        "Laisser refroidir complètement sur la plaque pour qu'il devienne croustillant, puis ajouter les raisins secs.",
+        "Conserver dans un bocal fermé. Servir avec du yaourt ou du lait végétal."
+      ]
+    },
+    {
+      "slug": "sucre-smoothie-bowl-mangue-kiwi",
+      "title": "Smoothie bowl mangue, banane et kiwi",
+      "description": "Un bol épais de fruits mixés, végane et sans gluten, garni de kiwi, de coco râpée et de graines de chia.",
+      "type": "breakfast",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 0,
+      "difficulty": "easy",
+      "equipment": ["blender"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "mangue-surgelee", "qty": 400, "unit": "g"},
+        {"id": "banane-surgelee", "qty": 300, "unit": "g"},
+        {"id": "lait-d-amande", "qty": 200, "unit": "ml"},
+        {"id": "kiwi", "qty": 3, "unit": "piece", "note": "pelés et coupés en rondelles"},
+        {"id": "noix-de-coco-rapee", "qty": 20, "unit": "g"},
+        {"id": "graines-de-chia", "qty": 2, "unit": "tbsp"}
+      ],
+      "steps": [
+        "Mettre la mangue et la banane surgelées dans le mixeur avec la moitié du lait d'amande.",
+        "Mixer en ajoutant le reste du lait au besoin, pour obtenir une texture épaisse et lisse qui se mange à la cuillère.",
+        "Répartir dans quatre bols.",
+        "Garnir de rondelles de kiwi, de noix de coco râpée et de graines de chia. Servir aussitôt."
+      ]
+    },
+    {
+      "slug": "sucre-overnight-oats-fruits-rouges",
+      "title": "Overnight oats aux fruits rouges",
+      "description": "Des flocons d'avoine sans gluten gonflés une nuit au frais avec du yaourt de soja, des graines de chia et des fruits rouges.",
+      "type": "breakfast",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 0,
+      "difficulty": "easy",
+      "equipment": [],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "flocons-d-avoine-sans-gluten", "qty": 200, "unit": "g"},
+        {"id": "lait-de-soja", "qty": 400, "unit": "ml"},
+        {"id": "yaourt-soja", "qty": 4, "unit": "piece"},
+        {"id": "graines-de-chia", "qty": 2, "unit": "tbsp"},
+        {"id": "sirop-d-agave", "qty": 2, "unit": "tbsp"},
+        {"id": "fruits-rouges-surgeles", "qty": 300, "unit": "g", "note": "décongelés"}
+      ],
+      "steps": [
+        "Dans un saladier, mélanger les flocons, le lait de soja, les yaourts, les graines de chia et le sirop d'agave.",
+        "Répartir dans quatre bocaux en alternant avec une partie des fruits rouges.",
+        "Fermer et réserver au frais toute la nuit, ou au moins 4 heures.",
+        "Le lendemain, mélanger et garnir du reste des fruits rouges. Servir froid."
+      ]
+    },
+    {
+      "slug": "sucre-pain-perdu-brioche",
+      "title": "Pain perdu à la brioche",
+      "description": "Des tranches de brioche rassise trempées dans un appareil au lait et à la vanille, dorées au beurre à la poêle.",
+      "type": "breakfast",
+      "servings": 4,
+      "prepMin": 10,
+      "cookMin": 12,
+      "difficulty": "easy",
+      "equipment": ["hob"],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "brioche", "qty": 8, "unit": "piece", "note": "tranches épaisses, de préférence rassises"},
+        {"id": "oeuf", "qty": 3, "unit": "piece"},
+        {"id": "lait-entier", "qty": 250, "unit": "ml"},
+        {"id": "sucre", "qty": 30, "unit": "g"},
+        {"id": "extrait-de-vanille", "qty": 1, "unit": "tsp"},
+        {"id": "cannelle", "qty": 1, "unit": "pinch"},
+        {"id": "beurre", "qty": 40, "unit": "g"},
+        {"id": "sucre-glace", "qty": 2, "unit": "tbsp", "optional": true, "note": "pour saupoudrer"}
+      ],
+      "steps": [
+        "Battre les œufs avec le lait, le sucre, la vanille et la cannelle dans une assiette creuse.",
+        "Faire tremper les tranches de brioche 30 secondes de chaque côté, sans les laisser se déliter.",
+        "Faire fondre un peu de beurre dans une grande poêle à feu moyen.",
+        "Dorer les tranches 2 à 3 minutes de chaque côté, en renouvelant le beurre entre les fournées.",
+        "Servir chaud, saupoudré de sucre glace."
+      ]
+    },
+    {
+      "slug": "sucre-bol-fromage-blanc-agrumes",
+      "title": "Bol de fromage blanc, agrumes et noix",
+      "description": "Un petit-déjeuner frais et sans cuisson de fromage blanc, d'oranges, de pamplemousse, de miel et de noix.",
+      "type": "breakfast",
+      "servings": 4,
+      "prepMin": 15,
+      "cookMin": 0,
+      "difficulty": "easy",
+      "equipment": [],
+      "mainBase": "sweet",
+      "ingredients": [
+        {"id": "fromage-blanc", "qty": 600, "unit": "g"},
+        {"id": "orange", "qty": 2, "unit": "piece"},
+        {"id": "pamplemousse", "qty": 1, "unit": "piece"},
+        {"id": "clementine", "qty": 2, "unit": "piece"},
+        {"id": "miel", "qty": 4, "unit": "tsp"},
+        {"id": "noix", "qty": 40, "unit": "g", "note": "concassées"}
+      ],
+      "steps": [
+        "Peler les oranges et le pamplemousse à vif, en retirant toute la peau blanche, puis lever les segments au-dessus d'un bol pour garder le jus.",
+        "Peler les clémentines et séparer les quartiers.",
+        "Répartir le fromage blanc dans quatre bols.",
+        "Disposer les agrumes dessus, arroser d'un peu de jus et d'un filet de miel.",
+        "Parsemer de noix concassées et servir aussitôt."
+      ]
+    }
+  ]
+}

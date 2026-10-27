@@ -47,3 +47,8 @@ kotlin {
 flutter {
     source = "../.."
 }
+
+dependencies {
+    // FileProvider pour l'appareil photo (aucune permission ajoutée).
+    implementation("androidx.core:core:1.13.1")
+}

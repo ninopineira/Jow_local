@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "popote/recipes.schema.json",
+  "title": "Lot de recettes fournies Popote",
+  "type": "object",
+  "required": ["lot", "recipes"],
+  "additionalProperties": false,
+  "properties": {
+    "lot": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "recipes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/recipe" } }
+  },
+  "$defs": {
+    "recipe": {
+      "type": "object",
+      "required": ["slug", "title", "description", "type", "servings", "prepMin", "cookMin", "difficulty", "equipment", "mainBase", "ingredients", "steps"],
+      "additionalProperties": false,
+      "properties": {
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "title": { "type": "string", "minLength": 3 },
+        "description": { "type": "string", "minLength": 10, "maxLength": 200 },
+        "type": { "enum": ["main", "dessert", "breakfast"] },
+        "servings": { "const": 4 },
+        "prepMin": { "type": "integer", "minimum": 0, "maximum": 240 },
+        "cookMin": { "type": "integer", "minimum": 0, "maximum": 480 },
+        "difficulty": { "enum": ["easy", "medium", "hard"] },
+        "equipment": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["oven", "hob", "microwave", "blender", "multicooker", "air_fryer", "steamer", "pressure_cooker"] }
+        },
+        "mainBase": { "enum": ["poultry", "beef", "pork", "lamb", "fish", "seafood", "legumes", "tofu", "eggs", "cheese", "pasta", "rice", "grains", "potatoes", "vegetables", "sweet"] },
+        "ingredients": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["id", "qty", "unit"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "qty": { "type": "number", "exclusiveMinimum": 0 },
+              "unit": { "enum": ["g", "ml", "piece", "tbsp", "tsp", "pinch"] },
+              "optional": { "type": "boolean" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "steps": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 5 } }
+      }
+    }
+  }
+}

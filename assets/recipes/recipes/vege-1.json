@@ -1,0 +1,466 @@
+{
+"lot": "vege-1",
+"recipes": [
+{
+"slug": "vege1-omelette-courgette-chevre",
+"title": "Omelette moelleuse courgette et chèvre frais",
+"description": "Une grande omelette à la poêle, garnie de courgettes dorées, de chèvre frais et de ciboulette. Prête en vingt minutes.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 12,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "eggs",
+"ingredients": [
+{"id":"oeuf","qty":8,"unit":"piece"},
+{"id":"courgette","qty":2,"unit":"piece"},
+{"id":"fromage-de-chevre-frais","qty":100,"unit":"g"},
+{"id":"huile-d-olive","qty":2,"unit":"tbsp"},
+{"id":"ciboulette","qty":10,"unit":"g"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Lavez les courgettes et coupez-les en petits dés. Ciselez la ciboulette.",
+"Faites chauffer la moitié de l'huile dans une grande poêle antiadhésive et faites revenir les courgettes 6 à 7 minutes, jusqu'à ce qu'elles soient tendres et dorées. Réservez-les dans une assiette.",
+"Battez les œufs avec le sel, le poivre et la moitié de la ciboulette.",
+"Remettez un peu d'huile dans la poêle, versez les œufs à feu moyen et laissez-les prendre 2 minutes en ramenant les bords vers le centre.",
+"Répartissez les courgettes et le chèvre émietté sur la moitié de l'omelette, puis repliez-la. Poursuivez la cuisson 2 minutes.",
+"Parsemez du reste de ciboulette, coupez en quatre parts et servez avec une salade verte."
+]
+},
+{
+"slug": "vege1-frittata-asperges-petits-pois",
+"title": "Frittata de printemps aux asperges et petits pois",
+"description": "Une frittata tout à la poêle, avec des asperges vertes croquantes, des petits pois tendres et un peu de parmesan.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 15,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "eggs",
+"ingredients": [
+{"id":"oeuf","qty":8,"unit":"piece"},
+{"id":"asperge-verte","qty":300,"unit":"g"},
+{"id":"petits-pois-frais","qty":150,"unit":"g"},
+{"id":"parmesan","qty":40,"unit":"g"},
+{"id":"oignon-nouveau","qty":3,"unit":"piece"},
+{"id":"huile-d-olive","qty":2,"unit":"tbsp"},
+{"id":"menthe-fraiche","qty":5,"unit":"g","optional":true},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Cassez le bas des asperges, puis coupez-les en tronçons de 3 cm. Émincez les oignons nouveaux.",
+"Faites chauffer l'huile dans une poêle de 28 cm à couvercle. Faites revenir les oignons 2 minutes, ajoutez les asperges et les petits pois, et cuisez 6 minutes à feu moyen.",
+"Battez les œufs avec le parmesan râpé, le sel et le poivre.",
+"Versez les œufs sur les légumes, baissez le feu et couvrez. Laissez prendre 8 minutes, jusqu'à ce que le dessus soit presque pris.",
+"Décollez les bords avec une spatule, glissez la frittata sur une assiette et servez tiède, avec la menthe ciselée."
+]
+},
+{
+"slug": "vege1-shakshuka-poivrons",
+"title": "Shakshuka aux poivrons et à la feta",
+"description": "Des œufs pochés dans une sauce tomate-poivrons parfumée au cumin et au paprika, relevée d'un peu de feta et de coriandre.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 20,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "vegetables",
+"ingredients": [
+{"id":"oeuf","qty":6,"unit":"piece"},
+{"id":"poivron-rouge","qty":2,"unit":"piece"},
+{"id":"oignon-jaune","qty":1,"unit":"piece"},
+{"id":"ail","qty":2,"unit":"piece"},
+{"id":"tomates-concassees","qty":400,"unit":"g"},
+{"id":"huile-d-olive","qty":2,"unit":"tbsp"},
+{"id":"cumin","qty":2,"unit":"tsp"},
+{"id":"paprika","qty":1,"unit":"tsp"},
+{"id":"harissa","qty":1,"unit":"tsp","optional":true,"note":"pour relever"},
+{"id":"feta","qty":100,"unit":"g"},
+{"id":"coriandre-fraiche","qty":10,"unit":"g"},
+{"id":"sel","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Émincez l'oignon, coupez les poivrons en lanières et écrasez l'ail.",
+"Faites chauffer l'huile dans une grande sauteuse. Faites revenir l'oignon et les poivrons 6 minutes à feu moyen.",
+"Ajoutez l'ail, le cumin, le paprika et la harissa si vous en utilisez, puis remuez 30 secondes.",
+"Versez les tomates concassées, salez et laissez mijoter 8 minutes à feu doux, jusqu'à ce que la sauce épaississe.",
+"Creusez six petits puits dans la sauce et cassez un œuf dans chacun. Couvrez et cuisez 5 à 6 minutes, selon le degré de cuisson souhaité.",
+"Émiettez la feta, parsemez de coriandre ciselée et servez directement dans la sauteuse."
+]
+},
+{
+"slug": "vege1-quiche-poireaux-comte",
+"title": "Quiche aux poireaux et au comté",
+"description": "Une quiche classique et généreuse : poireaux fondants, appareil crémeux aux œufs et comté bien doré.",
+"type": "main",
+"servings": 4,
+"prepMin": 20,
+"cookMin": 40,
+"difficulty": "easy",
+"equipment": ["oven", "hob"],
+"mainBase": "vegetables",
+"ingredients": [
+{"id":"pate-brisee","qty":1,"unit":"piece"},
+{"id":"poireau","qty":3,"unit":"piece"},
+{"id":"oeuf","qty":4,"unit":"piece"},
+{"id":"creme-liquide","qty":200,"unit":"ml"},
+{"id":"lait-demi-ecreme","qty":100,"unit":"ml"},
+{"id":"comte","qty":100,"unit":"g"},
+{"id":"beurre","qty":20,"unit":"g"},
+{"id":"muscade","qty":1,"unit":"pinch"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Préchauffez le four à 180 °C. Lavez les poireaux et coupez-les en rondelles fines.",
+"Faites fondre le beurre dans une sauteuse, ajoutez les poireaux et cuisez-les 10 minutes à feu moyen en remuant, jusqu'à ce qu'ils soient fondants. Laissez tiédir.",
+"Étalez la pâte dans un moule à tarte avec son papier cuisson et piquez le fond à la fourchette.",
+"Battez les œufs avec la crème, le lait, la muscade, le sel et le poivre.",
+"Répartissez les poireaux sur la pâte, versez l'appareil et parsemez de comté râpé.",
+"Enfournez 35 à 40 minutes, jusqu'à ce que la quiche soit dorée et bien prise. Laissez reposer 5 minutes avant de servir."
+]
+},
+{
+"slug": "vege1-oeufs-cocotte-epinards",
+"title": "Œufs cocotte aux épinards et au gruyère",
+"description": "Des œufs coulants nichés dans un lit d'épinards à la crème, gratinés au gruyère. Simple et réconfortant.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 20,
+"difficulty": "easy",
+"equipment": ["oven", "hob"],
+"mainBase": "eggs",
+"ingredients": [
+{"id":"oeuf","qty":4,"unit":"piece"},
+{"id":"epinard-frais","qty":400,"unit":"g"},
+{"id":"creme-liquide","qty":150,"unit":"ml"},
+{"id":"gruyere-rape","qty":40,"unit":"g"},
+{"id":"beurre","qty":20,"unit":"g"},
+{"id":"echalote","qty":2,"unit":"piece"},
+{"id":"muscade","qty":1,"unit":"pinch"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Préchauffez le four à 200 °C. Beurrez légèrement quatre ramequins. Émincez les échalotes.",
+"Faites fondre le beurre dans une grande poêle et faites suer les échalotes 2 minutes. Ajoutez les épinards par poignées et laissez-les tomber 4 minutes.",
+"Versez la crème, ajoutez la muscade, le sel et le poivre, et laissez réduire 3 minutes.",
+"Répartissez les épinards dans les ramequins, creusez un puits au centre et cassez un œuf dans chacun.",
+"Parsemez de gruyère et enfournez 8 à 10 minutes, jusqu'à ce que le blanc soit pris et le jaune encore coulant.",
+"Servez aussitôt, avec des mouillettes de pain si vous le souhaitez."
+]
+},
+{
+"slug": "vege1-tortilla-espagnole",
+"title": "Tortilla espagnole aux pommes de terre",
+"description": "La tortilla traditionnelle : pommes de terre confites dans l'huile d'olive, oignons fondants et œufs bien baveux au centre.",
+"type": "main",
+"servings": 4,
+"prepMin": 20,
+"cookMin": 30,
+"difficulty": "medium",
+"equipment": ["hob"],
+"mainBase": "potatoes",
+"ingredients": [
+{"id":"pomme-de-terre","qty":800,"unit":"g"},
+{"id":"oignon-jaune","qty":2,"unit":"piece"},
+{"id":"oeuf","qty":8,"unit":"piece"},
+{"id":"huile-d-olive","qty":5,"unit":"tbsp"},
+{"id":"sel","qty":3,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"},
+{"id":"persil","qty":10,"unit":"g","optional":true}
+],
+"steps": [
+"Épluchez les pommes de terre et coupez-les en fines lamelles. Émincez les oignons.",
+"Faites chauffer l'huile dans une poêle antiadhésive de 26 cm. Ajoutez les pommes de terre, les oignons et une pincée de sel, et laissez confire 18 à 20 minutes à feu moyen-doux en remuant de temps en temps, sans les faire colorer.",
+"Battez les œufs dans un grand saladier avec le reste du sel et le poivre. Égouttez les pommes de terre et mélangez-les aux œufs. Laissez reposer 5 minutes.",
+"Remettez un filet d'huile dans la poêle, versez le mélange et cuisez 5 minutes à feu doux, jusqu'à ce que le dessous soit doré.",
+"Posez une grande assiette sur la poêle, retournez la tortilla d'un geste franc, puis faites-la glisser dans la poêle. Cuisez encore 4 minutes.",
+"Laissez tiédir, parsemez de persil et servez en parts, tiède ou froide."
+]
+},
+{
+"slug": "vege1-croque-madame-champignons",
+"title": "Croque-madame aux champignons",
+"description": "Des croques gratinés au gruyère et aux champignons poêlés, nappés de béchamel et couronnés d'un œuf au plat.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 20,
+"difficulty": "medium",
+"equipment": ["oven", "hob"],
+"mainBase": "cheese",
+"ingredients": [
+{"id":"pain-de-mie","qty":8,"unit":"piece"},
+{"id":"champignon-de-paris","qty":300,"unit":"g"},
+{"id":"gruyere-rape","qty":120,"unit":"g"},
+{"id":"oeuf","qty":4,"unit":"piece"},
+{"id":"beurre","qty":40,"unit":"g"},
+{"id":"farine-de-ble","qty":20,"unit":"g"},
+{"id":"lait-entier","qty":250,"unit":"ml"},
+{"id":"muscade","qty":1,"unit":"pinch"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Préchauffez le four à 220 °C (gril si possible). Émincez les champignons.",
+"Faites sauter les champignons dans une poêle avec 10 g de beurre pendant 6 minutes, salez, poivrez et réservez.",
+"Préparez la béchamel : faites fondre 20 g de beurre dans une casserole, ajoutez la farine, remuez 1 minute, puis versez le lait peu à peu en fouettant. Cuisez 5 minutes, assaisonnez avec la muscade, le sel et le poivre.",
+"Montez quatre croques : sur une tranche de pain, déposez des champignons et un peu de gruyère, puis refermez avec une seconde tranche. Nappez de béchamel et parsemez du reste de gruyère.",
+"Enfournez sur une plaque 8 à 10 minutes, jusqu'à ce que le fromage soit doré et gratiné.",
+"Pendant ce temps, faites cuire les œufs au plat dans le reste de beurre. Posez un œuf sur chaque croque et servez aussitôt."
+]
+},
+{
+"slug": "vege1-galettes-sarrasin-champignons-oeuf",
+"title": "Galettes de sarrasin complètes aux champignons",
+"description": "Des galettes de sarrasin sans gluten garnies d'emmental, de champignons poêlés et d'un œuf, façon complète bretonne.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 20,
+"difficulty": "medium",
+"equipment": ["hob"],
+"mainBase": "grains",
+"ingredients": [
+{"id":"farine-de-sarrasin","qty":200,"unit":"g"},
+{"id":"eau","qty":450,"unit":"ml"},
+{"id":"oeuf","qty":5,"unit":"piece","note":"1 pour la pâte, 1 par galette"},
+{"id":"champignon-de-paris","qty":300,"unit":"g"},
+{"id":"emmental-rape","qty":120,"unit":"g"},
+{"id":"beurre","qty":40,"unit":"g"},
+{"id":"sel","qty":3,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Dans un saladier, fouettez la farine de sarrasin avec une pincée de sel, un œuf et l'eau, jusqu'à obtenir une pâte lisse et fluide. Laissez reposer pendant la préparation de la garniture.",
+"Émincez les champignons et faites-les sauter dans une poêle avec 10 g de beurre pendant 6 minutes. Salez, poivrez et gardez au chaud.",
+"Faites fondre un peu de beurre dans une crêpière ou une grande poêle, versez une louche de pâte et étalez-la finement. Cuisez 2 minutes, retournez.",
+"Parsemez un quart de l'emmental et des champignons au centre, cassez un œuf par-dessus et salez.",
+"Repliez les bords en carré et couvrez 3 à 4 minutes, jusqu'à ce que le blanc soit pris. Servez chaud.",
+"Répétez l'opération pour les trois autres galettes, en gardant les premières au chaud."
+]
+},
+{
+"slug": "vege1-gratin-chou-fleur-oeufs-durs",
+"title": "Gratin de chou-fleur aux œufs durs",
+"description": "Un chou-fleur tendre et des œufs durs sous une béchamel au gruyère, gratinés au four. Un plat d'hiver rassurant.",
+"type": "main",
+"servings": 4,
+"prepMin": 20,
+"cookMin": 35,
+"difficulty": "easy",
+"equipment": ["oven", "hob"],
+"mainBase": "vegetables",
+"ingredients": [
+{"id":"chou-fleur","qty":1,"unit":"piece"},
+{"id":"oeuf","qty":4,"unit":"piece"},
+{"id":"beurre","qty":30,"unit":"g"},
+{"id":"farine-de-ble","qty":30,"unit":"g"},
+{"id":"lait-entier","qty":400,"unit":"ml"},
+{"id":"gruyere-rape","qty":100,"unit":"g"},
+{"id":"muscade","qty":1,"unit":"pinch"},
+{"id":"sel","qty":3,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Préchauffez le four à 200 °C. Détaillez le chou-fleur en petits bouquets.",
+"Cuisez les bouquets 8 minutes dans une grande casserole d'eau bouillante salée, puis égouttez-les. Dans une autre casserole, faites cuire les œufs 9 minutes dans l'eau bouillante, rafraîchissez-les et écalez-les.",
+"Préparez la béchamel : faites fondre le beurre, ajoutez la farine, remuez 1 minute, puis versez le lait peu à peu en fouettant. Laissez épaissir 5 minutes, ajoutez la muscade, le sel, le poivre et la moitié du gruyère.",
+"Disposez le chou-fleur dans un plat à gratin, ajoutez les œufs coupés en quartiers et nappez de béchamel.",
+"Parsemez du reste de gruyère et enfournez 20 minutes, jusqu'à ce que le dessus soit bien doré."
+]
+},
+{
+"slug": "vege1-omelette-tomates-mozzarella-basilic",
+"title": "Omelette d'été tomates, mozzarella et basilic",
+"description": "Une omelette fondante aux saveurs italiennes : tomates juteuses, mozzarella filante et basilic frais.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 10,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "eggs",
+"ingredients": [
+{"id":"oeuf","qty":8,"unit":"piece"},
+{"id":"tomate","qty":4,"unit":"piece"},
+{"id":"mozzarella","qty":1,"unit":"piece"},
+{"id":"basilic-frais","qty":10,"unit":"g"},
+{"id":"huile-d-olive","qty":2,"unit":"tbsp"},
+{"id":"ail","qty":1,"unit":"piece"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Coupez les tomates en dés et égouttez-les quelques minutes. Coupez la mozzarella en petits morceaux et ciselez le basilic.",
+"Faites chauffer la moitié de l'huile dans une grande poêle avec l'ail écrasé. Faites revenir les tomates 3 minutes à feu vif, puis retirez l'ail et réservez les tomates.",
+"Battez les œufs avec le sel et le poivre. Versez un peu d'huile dans la poêle, puis les œufs, et laissez prendre 2 minutes à feu moyen.",
+"Répartissez les tomates, la mozzarella et la moitié du basilic sur l'omelette. Couvrez 2 minutes pour faire fondre le fromage.",
+"Repliez l'omelette, parsemez du reste de basilic et coupez en quatre parts."
+]
+},
+{
+"slug": "vege1-galette-pommes-de-terre-raclette-oeuf",
+"title": "Galette de pommes de terre, raclette et œuf au plat",
+"description": "Une grosse galette de pommes de terre croustillante, fondante de fromage à raclette, servie avec un œuf et de la mâche.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 20,
+"difficulty": "medium",
+"equipment": ["hob"],
+"mainBase": "potatoes",
+"ingredients": [
+{"id":"pomme-de-terre","qty":800,"unit":"g"},
+{"id":"oignon-jaune","qty":1,"unit":"piece"},
+{"id":"fromage-a-raclette","qty":200,"unit":"g"},
+{"id":"oeuf","qty":4,"unit":"piece"},
+{"id":"mache","qty":100,"unit":"g"},
+{"id":"huile-de-tournesol","qty":3,"unit":"tbsp"},
+{"id":"vinaigre-de-vin","qty":1,"unit":"tbsp"},
+{"id":"sel","qty":3,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Épluchez les pommes de terre et râpez-les avec l'oignon. Pressez la préparation dans un torchon pour en extraire l'eau, puis salez et poivrez.",
+"Faites chauffer deux cuillères d'huile dans une grande poêle antiadhésive. Étalez-y la moitié des pommes de terre râpées et tassez légèrement.",
+"Disposez les tranches de fromage à raclette sur toute la surface, puis recouvrez avec le reste des pommes de terre râpées.",
+"Cuisez 8 minutes à feu moyen, retournez la galette à l'aide d'une assiette et poursuivez 8 minutes, jusqu'à ce qu'elle soit bien dorée.",
+"Faites cuire les œufs au plat dans une autre poêle avec le reste d'huile.",
+"Assaisonnez la mâche avec le vinaigre, un peu de sel et de poivre. Servez les parts de galette avec un œuf et la salade."
+]
+},
+{
+"slug": "vege1-gratin-courgettes-tomates-oeufs",
+"title": "Tian d'œufs aux courgettes et tomates, sans pâte",
+"description": "Une tarte sans pâte, sans gluten : courgettes et tomates du soleil dans un appareil aux œufs et à la crème, avec des herbes de Provence.",
+"type": "main",
+"servings": 4,
+"prepMin": 15,
+"cookMin": 35,
+"difficulty": "easy",
+"equipment": ["oven"],
+"mainBase": "vegetables",
+"ingredients": [
+{"id":"courgette","qty":2,"unit":"piece"},
+{"id":"tomate","qty":3,"unit":"piece"},
+{"id":"oeuf","qty":5,"unit":"piece"},
+{"id":"creme-liquide","qty":150,"unit":"ml"},
+{"id":"emmental-rape","qty":80,"unit":"g"},
+{"id":"herbes-de-provence","qty":1,"unit":"tsp"},
+{"id":"huile-d-olive","qty":1,"unit":"tbsp"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Préchauffez le four à 180 °C. Huilez un plat à gratin.",
+"Coupez les courgettes et les tomates en rondelles de 5 mm. Salez-les légèrement et épongez-les avec du papier absorbant.",
+"Disposez les rondelles en alternant courgettes et tomates, en les serrant bien dans le plat.",
+"Battez les œufs avec la crème, la moitié de l'emmental, les herbes de Provence, le sel et le poivre. Versez sur les légumes.",
+"Parsemez du reste d'emmental et enfournez 30 à 35 minutes, jusqu'à ce que l'appareil soit pris et doré. Servez tiède."
+]
+},
+{
+"slug": "vege1-riz-saute-oeufs-legumes",
+"title": "Riz sauté aux œufs et aux légumes",
+"description": "Un riz sauté façon wok, sans gluten, avec des œufs brouillés, des légumes croquants, du gingembre et du tamari.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 20,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "rice",
+"ingredients": [
+{"id":"riz-long","qty":300,"unit":"g"},
+{"id":"oeuf","qty":4,"unit":"piece"},
+{"id":"melange-legumes-wok","qty":400,"unit":"g"},
+{"id":"oignon-nouveau","qty":4,"unit":"piece"},
+{"id":"gingembre","qty":10,"unit":"g"},
+{"id":"ail","qty":2,"unit":"piece"},
+{"id":"tamari","qty":3,"unit":"tbsp"},
+{"id":"huile-de-tournesol","qty":2,"unit":"tbsp"},
+{"id":"huile-de-sesame","qty":1,"unit":"tsp","optional":true},
+{"id":"eau","qty":600,"unit":"ml"}
+],
+"steps": [
+"Rincez le riz, puis cuisez-le 12 minutes dans l'eau bouillante. Égouttez-le et étalez-le sur une assiette pour qu'il refroidisse un peu.",
+"Émincez les oignons nouveaux, râpez le gingembre et hachez l'ail.",
+"Faites chauffer une cuillère d'huile dans un wok ou une grande poêle. Versez les œufs battus, brouillez-les 1 minute et réservez-les.",
+"Ajoutez le reste d'huile, puis le gingembre, l'ail et le mélange de légumes. Faites sauter 6 minutes à feu vif.",
+"Ajoutez le riz et faites sauter 3 minutes en remuant. Versez le tamari, remettez les œufs et mélangez.",
+"Parsemez d'oignons nouveaux, ajoutez l'huile de sésame si vous en utilisez et servez très chaud."
+]
+},
+{
+"slug": "vege1-tarte-fine-potiron-chevre-oeuf",
+"title": "Tarte fine au potiron, chèvre et œuf",
+"description": "Une tarte feuilletée d'automne : potiron en lamelles, oignon rouge, chèvre et un œuf cuit sur le dessus, parfumée au romarin.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 25,
+"difficulty": "easy",
+"equipment": ["oven"],
+"mainBase": "vegetables",
+"ingredients": [
+{"id":"pate-feuilletee","qty":1,"unit":"piece"},
+{"id":"potiron","qty":500,"unit":"g"},
+{"id":"oignon-rouge","qty":1,"unit":"piece"},
+{"id":"fromage-de-chevre-buche","qty":120,"unit":"g"},
+{"id":"oeuf","qty":4,"unit":"piece"},
+{"id":"huile-d-olive","qty":1,"unit":"tbsp"},
+{"id":"romarin-frais","qty":3,"unit":"g"},
+{"id":"miel","qty":1,"unit":"tbsp","optional":true},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Préchauffez le four à 200 °C. Épluchez le potiron, retirez les graines et coupez-le en lamelles très fines. Émincez l'oignon rouge.",
+"Déroulez la pâte sur une plaque avec son papier cuisson et piquez-la à la fourchette en laissant un bord de 2 cm.",
+"Disposez les lamelles de potiron et l'oignon en rosace sur la pâte, arrosez d'huile, salez, poivrez et parsemez de romarin.",
+"Enfournez 15 minutes, puis sortez la plaque. Ajoutez le chèvre en rondelles et creusez quatre petits puits dans les légumes.",
+"Cassez un œuf dans chaque puits et remettez au four 8 à 10 minutes, jusqu'à ce que les blancs soient pris.",
+"Nappez d'un filet de miel si vous le souhaitez et servez aussitôt."
+]
+},
+{
+"slug": "vege1-endives-braisees-oeufs-mollets-comte",
+"title": "Endives braisées, œufs mollets et comté",
+"description": "Des endives fondantes au beurre et au citron, accompagnées d'œufs mollets et de copeaux de comté. Sans gluten.",
+"type": "main",
+"servings": 4,
+"prepMin": 10,
+"cookMin": 20,
+"difficulty": "easy",
+"equipment": ["hob"],
+"mainBase": "vegetables",
+"ingredients": [
+{"id":"endive","qty":6,"unit":"piece"},
+{"id":"oeuf","qty":6,"unit":"piece"},
+{"id":"comte","qty":80,"unit":"g"},
+{"id":"beurre","qty":20,"unit":"g"},
+{"id":"creme-liquide","qty":100,"unit":"ml"},
+{"id":"jus-de-citron","qty":30,"unit":"ml"},
+{"id":"ciboulette","qty":5,"unit":"g"},
+{"id":"sel","qty":2,"unit":"pinch"},
+{"id":"poivre","qty":2,"unit":"pinch"}
+],
+"steps": [
+"Retirez le pied des endives et coupez-les en deux dans la longueur.",
+"Faites fondre le beurre dans une grande sauteuse et saisissez les endives côté coupé, 4 minutes à feu moyen, jusqu'à ce qu'elles soient dorées.",
+"Ajoutez le jus de citron, le sel et le poivre, couvrez et laissez braiser 10 minutes à feu doux. Versez la crème et laissez réduire 3 minutes.",
+"Pendant ce temps, plongez les œufs 6 minutes et 30 secondes dans l'eau bouillante, rafraîchissez-les à l'eau froide et écalez-les.",
+"Répartissez les endives dans les assiettes, ajoutez les œufs coupés en deux, des copeaux de comté et la ciboulette ciselée."
+]
+}
+]
+}
