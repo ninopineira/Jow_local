@@ -17,6 +17,8 @@ Internet est autorisé **pendant le développement** (installer Flutter, récup�
 
 Autorisé (déclenché par l'utilisateur, sans émission réseau de l'app) : copier dans le presse-papiers, partager du texte via la feuille de partage du système, choisir un fichier via le sélecteur du système.
 
+N'utilise jamais le skill `flutter-use-http-package` du plugin Dart/Flutter : il est contraire à cette règle.
+
 Avant d'ajouter une dépendance, vérifie qu'elle n'est pas réseau et regarde ses dépendances transitives dans `pubspec.lock`. En cas de doute, demande au sous-agent `relecteur-local`.
 
 ## Commandes
