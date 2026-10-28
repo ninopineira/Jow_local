@@ -41,6 +41,7 @@ Après l'import de l'ancienne app (même jour) : `testeur` → « No issues foun
 
 Nécessite ton intervention :
 - [ ] Dans l'ancienne app, lancer le prompt séparé qui produit l'export au format `docs/EXPORT_FORMAT.md` (l'ancienne app est en lecture seule pour Popote).
-- [ ] Sur le téléphone : essayer le scan caméra et l'import de la base produits (testés sur PC avec un scanner simulé uniquement ; aucun appareil branché).
+- [x] Sur le téléphone (24117RN76E, Android 16, 2026-10-28) : APK V2 installé par-dessus la V1 (`adb install -r`), migration réelle sans erreur (profil V1 conservé, pas d'assistant) ; base produits copiée dans Téléchargements puis importée depuis Réglages ; scan caméra d'un produit et rangement dans le stock : confirmés par l'utilisateur, aucune erreur dans logcat.
+- [ ] Mineur : `pubspec.yaml` est encore en `version: 1.0.0+1` alors que « À propos » affiche 2.0.0 ; passer à `2.0.0+2` au prochain build.
 
 Pistes : tester le scan et l'import de la base produits sur le téléphone ; import de l'ancienne app si `docs/EXPORT_FORMAT.md` est produit.
