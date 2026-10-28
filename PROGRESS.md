@@ -33,8 +33,14 @@ Validation finale (2026-10-28) :
 
 Après l'import de l'ancienne app (même jour) : `testeur` → « No issues found! », « +146: All tests passed! » ; build release 79,4 Mo ; `check_offline` OK (CAMERA seule) ; `relecteur-local` OK.
 
-À reprendre (points à surveiller de relecteur-local, non bloquants) :
-- [ ] `OldAppImportTile` n'intercepte que `FormatException` : un fichier au bon format mais mal typé lèverait une `TypeError` ; afficher un message générique.
-- [ ] Le texte `oldAppImportHint` cite « docs/EXPORT_FORMAT.md », sans intérêt pour l'utilisateur.
+- [x] Fichier d'import mal formé : message générique, transaction annulée (test ajouté) ; texte d'aide sans chemin de dépôt. Revalidé : `testeur` « +147: All tests passed! », « No issues found! » ; build release ; `check_offline` OK ; `relecteur-local` OK.
+
+À reprendre (non bloquant) :
+- [ ] Valider les types dans `OldAppImport` et lever une `FormatException` plutôt que de compter sur la `TypeError` (remarque de testeur).
+- [ ] Fermer les bases créées par `setup()` dans les tests (avertissement drift).
+
+Nécessite ton intervention :
+- [ ] Dans l'ancienne app, lancer le prompt séparé qui produit l'export au format `docs/EXPORT_FORMAT.md` (l'ancienne app est en lecture seule pour Popote).
+- [ ] Sur le téléphone : essayer le scan caméra et l'import de la base produits (testés sur PC avec un scanner simulé uniquement ; aucun appareil branché).
 
 Pistes : tester le scan et l'import de la base produits sur le téléphone ; import de l'ancienne app si `docs/EXPORT_FORMAT.md` est produit.

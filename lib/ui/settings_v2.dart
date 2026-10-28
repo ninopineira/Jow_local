@@ -130,6 +130,11 @@ class OldAppImportTile extends ConsumerWidget {
       } on FormatException catch (e) {
         messenger.showSnackBar(SnackBar(content: Text(e.message)));
         return;
+      } on TypeError {
+        // Bon en-tête mais données mal formées : message générique, sans
+        // journaliser le contenu du fichier.
+        messenger.showSnackBar(const SnackBar(content: Text(S.oldAppInvalid)));
+        return;
       }
       if (!context.mounted) return;
       final ok = await showDialog<bool>(
@@ -166,9 +171,15 @@ class OldAppImportTile extends ConsumerWidget {
         ),
       );
       if (ok != true) return;
-      await ref
-          .read(kitchenActionsProvider)
-          .run((_) => importer.apply(preview.data));
+      try {
+        await ref
+            .read(kitchenActionsProvider)
+            .run((_) => importer.apply(preview.data));
+      } on TypeError {
+        // La transaction est annulée : rien n'est importé.
+        messenger.showSnackBar(const SnackBar(content: Text(S.oldAppInvalid)));
+        return;
+      }
       messenger.showSnackBar(const SnackBar(content: Text(S.oldAppDone)));
     },
   );

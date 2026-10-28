@@ -522,8 +522,10 @@ abstract final class S {
   // Import de l'ancienne app (SPEC-V2 §10)
   static const oldAppImport = 'Importer depuis l’ancienne app';
   static const oldAppImportHint =
-      'Fichier app-nutrition-export (voir docs/EXPORT_FORMAT.md) : profil, '
-      'journal, banque de repas, pas, séances, pesées.';
+      'Fichier d’export de l’ancienne app de nutrition : profil, journal, '
+      'banque de repas, pas, séances, pesées. Aperçu avant import.';
+  static const oldAppInvalid =
+      'Ce fichier est incomplet ou abîmé : rien n’a été importé.';
   static const importConfirmAction = 'Importer';
   static const oldAppDone = 'Données de l’ancienne app importées.';
   static String oldAppCategory(String key) => switch (key) {

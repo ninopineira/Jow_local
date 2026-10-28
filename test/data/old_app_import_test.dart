@@ -156,4 +156,18 @@ void main() {
       throwsFormatException,
     );
   });
+
+  test('données mal formées : erreur et rien d’importé', () async {
+    final (_, k) = await setup();
+    final imp = OldAppImport(k);
+    final bad = Map<String, dynamic>.from(example)
+      ..['bodyMetrics'] = [
+        {'date': '2026-10-20', 'weightKg': 75},
+        {'date': '2026-10-21', 'weightKg': 'lourd'},
+      ];
+    final data = imp.parse(utf8.encode(jsonEncode(bad)));
+    await expectLater(imp.apply(data), throwsA(isA<TypeError>()));
+    expect(await k.weights(), isEmpty);
+    expect(await k.nutritionProfile(), isNull);
+  });
 }
