@@ -7,6 +7,7 @@ import '../domain/models.dart';
 import '../domain/quantities.dart';
 import 'menu_screen.dart' show slotLabel;
 import 'providers.dart';
+import 'recipe_nutrition.dart';
 import 'strings.dart';
 import 'widgets.dart';
 
@@ -126,6 +127,7 @@ class _RecipeDetailScreenState extends ConsumerState<RecipeDetailScreen> {
                     Chip(label: Text(S.equipment(e))),
                 ],
               ),
+              RecipeNutritionSection(recipe: r),
               SectionTitle(S.compatibleDiets),
               Text(
                 [

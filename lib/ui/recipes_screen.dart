@@ -7,6 +7,7 @@ import '../domain/enums.dart';
 import '../domain/models.dart';
 import 'profile_sections.dart';
 import 'providers.dart';
+import 'stock_screen.dart' show SettingsAction;
 import 'strings.dart';
 import 'widgets.dart';
 
@@ -70,7 +71,10 @@ class _RecipesScreenState extends ConsumerState<RecipesScreen> {
     final profile = ref.watch(profileProvider);
     final month = ref.watch(todayProvider).month;
     return Scaffold(
-      appBar: AppBar(title: const Text(S.recipesTitle)),
+      appBar: AppBar(
+        title: const Text(S.recipesTitle),
+        actions: const [SettingsAction()],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         key: const Key('new-recipe'),
         onPressed: () => context.push('/recipes/new'),

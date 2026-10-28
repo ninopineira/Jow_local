@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../domain/enums.dart';
 import '../domain/models.dart';
+import '../domain/nutrition.dart';
 
 /// Contenu brut des données fournies, lu depuis les assets dans l'app ou depuis
 /// le disque dans les tests.
@@ -164,10 +165,49 @@ List<SeedRecipe> parseLot(String json) {
 
 Future<SeedData> loadSeed(SeedSource src) async {
   final manifest = parseManifest(await src.read('seed.json'));
-  final ingredients = parseIngredients(await src.read('ingredients.json'));
+  var ingredients = parseIngredients(await src.read('ingredients.json'));
+  ingredients = applyNutrition(
+    ingredients,
+    parseNutrition(await src.read('nutrition.json')),
+  );
   final recipes = <SeedRecipe>[];
   for (final lot in manifest.lots) {
     recipes.addAll(parseLot(await src.read('recipes/$lot.json')));
   }
   return SeedData(manifest, ingredients, recipes);
 }
+
+/// Valeurs Ciqual calculées par tool/build_nutrition.dart (SPEC-V2 §4).
+class SeedNutrition {
+  const SeedNutrition(this.nutrients, this.ciqualCode, this.density);
+  final Nutrients nutrients;
+  final String? ciqualCode;
+  final double? density;
+}
+
+Map<String, SeedNutrition> parseNutrition(String json) {
+  final m = jsonDecode(json) as Map<String, dynamic>;
+  final items = (m['items'] as Map).cast<String, dynamic>();
+  return {
+    for (final e in items.entries)
+      e.key: SeedNutrition(
+        Nutrients.fromJson(e.value as Map<String, dynamic>),
+        (e.value as Map)['ciqual'] as String?,
+        ((e.value as Map)['density'] as num?)?.toDouble(),
+      ),
+  };
+}
+
+List<Ingredient> applyNutrition(
+  List<Ingredient> ingredients,
+  Map<String, SeedNutrition> nutrition,
+) => [
+  for (final i in ingredients)
+    nutrition[i.id] == null
+        ? i
+        : i.withNutrition(
+            nutrition[i.id]!.nutrients,
+            density: nutrition[i.id]!.density,
+            ciqualCode: nutrition[i.id]!.ciqualCode,
+          ),
+];

@@ -12,6 +12,9 @@ abstract class PlatformBridge {
   Future<void> keepScreenOn(bool on);
   Future<bool> saveDocument(String fileName, String mimeType, Uint8List bytes);
   Future<Uint8List?> openDocument();
+
+  /// Copie le fichier choisi par l'utilisateur vers [destPath], en flux.
+  Future<bool> copyDocument(String destPath);
   Future<bool> pickImage({required bool camera, required String destPath});
 }
 
@@ -42,6 +45,11 @@ class ChannelPlatformBridge implements PlatformBridge {
   @override
   Future<Uint8List?> openDocument() =>
       _channel.invokeMethod<Uint8List>('openDocument');
+
+  @override
+  Future<bool> copyDocument(String destPath) async =>
+      await _channel.invokeMethod<bool>('copyDocument', {'dest': destPath}) ??
+      false;
 
   @override
   Future<bool> pickImage({

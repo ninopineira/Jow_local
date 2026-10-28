@@ -8,7 +8,9 @@ import '../domain/diet.dart';
 import '../domain/enums.dart';
 import '../domain/generator.dart';
 import '../domain/models.dart';
+import '../domain/stock.dart';
 import 'platform.dart';
+import 'v2_providers.dart';
 
 /// Fournis par `main.dart` (ou les tests) via des overrides.
 final repositoryProvider = Provider<Repository>(
@@ -143,6 +145,10 @@ class AppActions {
       p.antiRepeatWeeks,
     );
     final seed = Random().nextInt(1 << 31);
+    // V2 : bonus pour les recettes qui utilisent le stock (SPEC-V2 §8).
+    final kitchen = ref.read(kitchenProvider);
+    final lots = await kitchen.stock();
+    final today = ref.read(todayProvider);
     final result = generateMenu(
       GeneratorInput(
         recipes: catalog.recipes,
@@ -152,6 +158,10 @@ class AppActions {
         slots: menu.slots,
         recentRecipeIds: recent,
         seed: seed,
+        stockAffinity: {
+          for (final r in catalog.recipes) r.id: stockAffinity(r, lots, today),
+        },
+        stockWeight: await kitchen.stockWeight(),
       ),
     );
     final kept = menu.slots.where(

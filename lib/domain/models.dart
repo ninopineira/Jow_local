@@ -1,4 +1,5 @@
 import 'enums.dart';
+import 'nutrition.dart';
 
 class Ingredient {
   const Ingredient({
@@ -13,6 +14,9 @@ class Ingredient {
     this.allergens = const {},
     this.seasonMonths = const {},
     this.origin = Origin.provided,
+    this.nutrition,
+    this.density,
+    this.ciqualCode,
   });
 
   final String id;
@@ -28,6 +32,36 @@ class Ingredient {
   /// Mois de saison (1 à 12) des fruits et légumes frais ; vide sinon.
   final Set<int> seasonMonths;
   final Origin origin;
+
+  /// Valeurs pour 100 g (SPEC-V2 §4) ; null si inconnues.
+  final Nutrients? nutrition;
+
+  /// Densité en g/ml pour convertir les volumes (1 si nulle).
+  final double? density;
+
+  /// Code de l'aliment Ciqual d'origine des valeurs.
+  final String? ciqualCode;
+
+  Ingredient withNutrition(
+    Nutrients? n, {
+    double? density,
+    String? ciqualCode,
+  }) => Ingredient(
+    id: id,
+    name: name,
+    aisle: aisle,
+    defaultUnit: defaultUnit,
+    avgPieceWeightG: avgPieceWeightG,
+    pantry: pantry,
+    perishable: perishable,
+    markers: markers,
+    allergens: allergens,
+    seasonMonths: seasonMonths,
+    origin: origin,
+    nutrition: n,
+    density: density ?? this.density,
+    ciqualCode: ciqualCode ?? this.ciqualCode,
+  );
 
   bool get isMeat =>
       markers.contains(Marker.meat) ||

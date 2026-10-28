@@ -6,6 +6,7 @@ import '../data/backup.dart';
 import '../domain/enums.dart';
 import '../domain/models.dart';
 import 'profile_sections.dart';
+import 'settings_v2.dart';
 import 'providers.dart';
 import 'strings.dart';
 import 'widgets.dart';
@@ -100,6 +101,9 @@ class SettingsScreen extends ConsumerWidget {
                 title: const Text(S.reset),
                 onTap: () => _reset(context, ref),
               ),
+              const Divider(),
+              const ProductDbTile(),
+              const StockWeightTile(),
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.info_outline_rounded),
@@ -325,6 +329,10 @@ class AboutScreen extends StatelessWidget {
         Text(S.aboutBody, style: Theme.of(context).textTheme.bodyLarge),
         const SizedBox(height: 16),
         const Text(S.aboutData),
+        const SizedBox(height: 16),
+        const Text(S.aboutCamera),
+        const SizedBox(height: 16),
+        Text(S.aboutCredits, style: Theme.of(context).textTheme.bodySmall),
         const SizedBox(height: 24),
         Text(S.aboutFont, style: Theme.of(context).textTheme.bodySmall),
         Text(S.version, style: Theme.of(context).textTheme.bodySmall),

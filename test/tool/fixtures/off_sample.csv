@@ -1,0 +1,8 @@
+code	product_name	brands	quantity	product_quantity	serving_quantity	categories_tags	countries_tags	unique_scans_n	completeness	energy-kcal_100g	energy_100g	proteins_100g	carbohydrates_100g	sugars_100g	fat_100g	saturated-fat_100g	fiber_100g	salt_100g
+3017620422003	Pâte à tartiner	Ferrero,Nutella	400 g	400	15	en:spreads,en:sweet-spreads	en:france,en:italy	5000	0.9	539	2252	6.3	57.5	56.3	30.9	10.6		0.107
+3250390000001	Spaghetti n°5	Marque X	500 g	500		en:pastas,en:spaghetti	en:france	300	0.8	357		12.5	71	3.5	1.5	0.3	3	0.01
+3000000000002	Yaourts nature		4 x 125 g		125	en:yogurts	en:france	20	0.5		250	4	5	5	1	0.7		0.1
+5000000000003	Bière belge		33 cl				en:belgium	1	0.2	43		0.5	3.6		0			
+3000000000004		Sans nom	1 kg				en:france	1	0.1	100								
+abc	Code invalide		1 l				en:france	1	0.1	40								
+3000000000005	Oeufs plein air		6 oeufs			en:eggs	en:france	50	0.6	140		12.5	0.7		9.7			0.3

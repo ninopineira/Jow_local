@@ -1,11 +1,13 @@
-// Contrôle « 100 % hors ligne » (SPEC §1.5).
+// Contrôle « 100 % hors ligne » (SPEC §1.5, SPEC-V2 §1).
 //
 // Usage, après `flutter build apk --release` :
 //   dart run tool/check_offline.dart [chemin/vers/app-release.apk]
 //
 // Échoue (code 1) si :
 //   1. l'APK release déclare INTERNET ou ACCESS_NETWORK_STATE (manifeste
-//      fusionné, lu avec aapt2 ou apkanalyzer du SDK Android) ;
+//      fusionné, lu avec aapt2 ou apkanalyzer du SDK Android), ou une
+//      permission hors de la liste attendue (V2 : CAMERA est la seule
+//      nouvelle permission tolérée) ;
 //   2. pubspec.lock contient un paquet de la liste noire dans le graphe des
 //      dépendances de l'app (les outils de dev comme build_runner ne partent
 //      pas dans l'APK : ils sont signalés pour information, voir DECISIONS.md) ;
@@ -18,6 +20,11 @@ const forbiddenPermissions = [
   'android.permission.ACCESS_NETWORK_STATE',
 ];
 
+/// Permissions attendues dans l'APK release : CAMERA (scan, SPEC-V2 §1) et
+/// la permission interne générée par AndroidX pour les récepteurs.
+const allowedPermissions = ['android.permission.CAMERA'];
+const allowedPermissionSuffixes = ['.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'];
+
 /// Paquets interdits (noms exacts) et familles (préfixes ou fragments).
 const blacklistExact = {
   'http',
@@ -29,6 +36,8 @@ const blacklistExact = {
   'google_fonts',
   'cached_network_image',
   'url_launcher',
+  // SDK Open Food Facts (réseau) : la base produits est importée par fichier.
+  'openfoodfacts',
 };
 const blacklistPrefixes = ['firebase_', 'sentry', 'supabase', 'url_launcher_'];
 const blacklistFragments = [
@@ -43,6 +52,10 @@ const blacklistFragments = [
   'bugsnag',
   'datadog',
   'segment_',
+  'nutritionix',
+  'edamam',
+  'spoonacular',
+  'fatsecret',
 ];
 
 /// Motifs interdits dans lib/ (SPEC §1.2), plus quelques équivalents.
@@ -91,6 +104,27 @@ Future<void> main(List<String> args) async {
           failures.add('Permission interdite dans l’APK : $f');
         }
       }
+      for (final p in perms) {
+        final expected =
+            allowedPermissions.contains(p) ||
+            allowedPermissionSuffixes.any(p.endsWith) ||
+            forbiddenPermissions.contains(p);
+        if (!expected) {
+          failures.add('Permission inattendue dans l’APK : $p');
+        }
+      }
+    }
+  }
+
+  // 1 bis. Scan sur l'appareil (SPEC-V2 §1) : le modèle ML Kit doit rester
+  // embarqué ; `useUnbundled` le ferait télécharger par les services Google.
+  for (final f in [
+    File('android/gradle.properties'),
+    File('android/app/build.gradle.kts'),
+  ]) {
+    if (f.existsSync() &&
+        RegExp(r'useUnbundled\s*=\s*true').hasMatch(f.readAsStringSync())) {
+      failures.add('mobile_scanner en mode « unbundled » dans ${f.path}');
     }
   }
 

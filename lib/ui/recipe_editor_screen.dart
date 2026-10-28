@@ -7,9 +7,15 @@ import 'package:go_router/go_router.dart';
 import '../domain/diet.dart';
 import '../domain/enums.dart';
 import '../domain/models.dart';
+import '../domain/nutrition.dart';
+import '../domain/quantities.dart' show formatNumber;
+
+import 'product_flow.dart';
 import 'profile_sections.dart';
 import 'providers.dart';
+import 'scanner.dart';
 import 'strings.dart';
+import 'v2_providers.dart';
 import 'widgets.dart';
 
 /// Ligne d'ingrédient en cours d'édition.
@@ -551,13 +557,42 @@ class _NewIngredientDialogState extends ConsumerState<NewIngredientDialog> {
   var perishable = false;
   final markers = <Marker>{};
   final allergens = <Allergen>{};
+  // V2 (SPEC-V2 §4) : valeurs pour 100 g, saisies ou reprises.
+  final kcal = TextEditingController();
+  final protein = TextEditingController();
+  final carbs = TextEditingController();
+  final fat = TextEditingController();
+  String? ciqualCode;
 
   @override
   void dispose() {
     name.dispose();
     weight.dispose();
+    for (final c in [kcal, protein, carbs, fat]) {
+      c.dispose();
+    }
     super.dispose();
   }
+
+  void _fill(Nutrients n, {String? ciqual}) => setState(() {
+    kcal.text = formatNumber(n.kcal);
+    protein.text = formatNumber(n.protein);
+    carbs.text = formatNumber(n.carbs);
+    fat.text = formatNumber(n.fat);
+    ciqualCode = ciqual;
+  });
+
+  double? _n(TextEditingController c) =>
+      double.tryParse(c.text.trim().replaceAll(',', '.'));
+
+  Nutrients? get _nutrients => _n(kcal) == null
+      ? null
+      : Nutrients(
+          kcal: _n(kcal)!,
+          protein: _n(protein) ?? 0,
+          carbs: _n(carbs) ?? 0,
+          fat: _n(fat) ?? 0,
+        );
 
   @override
   Widget build(BuildContext context) => AlertDialog(
@@ -611,6 +646,49 @@ class _NewIngredientDialogState extends ConsumerState<NewIngredientDialog> {
             value: perishable,
             onChanged: (v) => setState(() => perishable = v ?? false),
           ),
+          SectionTitle(S.productPer100),
+          Wrap(
+            spacing: 8,
+            children: [
+              OutlinedButton(
+                onPressed: () async {
+                  final all = (await ref.read(catalogProvider.future))
+                      .ingredients
+                      .where((i) => i.nutrition != null)
+                      .toList();
+                  if (!context.mounted) return;
+                  final i = await pickIngredient(context, all);
+                  if (i != null) _fill(i.nutrition!, ciqual: i.ciqualCode);
+                },
+                child: const Text(S.nutritionFromCatalogue),
+              ),
+              OutlinedButton(
+                onPressed: () async {
+                  final code = await scanOnce(
+                    context,
+                    ref.read(scannerProvider),
+                  );
+                  if (code == null || code.isEmpty) return;
+                  final pr = await ref.read(kitchenProvider).product(code);
+                  if (pr?.nutrients != null) _fill(pr!.nutrients!);
+                },
+                child: const Text(S.nutritionFromProduct),
+              ),
+            ],
+          ),
+          for (final (label, c) in [
+            (S.kcal, kcal),
+            (S.protein, protein),
+            (S.carbs, carbs),
+            (S.fat, fat),
+          ])
+            TextField(
+              controller: c,
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
+              decoration: InputDecoration(labelText: label),
+            ),
           SectionTitle(S.markers),
           Wrap(
             spacing: 6,
@@ -671,6 +749,8 @@ class _NewIngredientDialogState extends ConsumerState<NewIngredientDialog> {
                   markers: m,
                   allergens: allergens,
                   origin: Origin.personal,
+                  nutrition: _nutrients,
+                  ciqualCode: ciqualCode,
                 ),
               );
           if (context.mounted) Navigator.pop(context, created);

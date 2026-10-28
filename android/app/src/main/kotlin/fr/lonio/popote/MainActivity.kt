@@ -27,6 +27,7 @@ class MainActivity : FlutterActivity() {
     private val reqOpen = 42
     private val reqGallery = 43
     private val reqCamera = 44
+    private val reqCopy = 45
 
     private var pending: MethodChannel.Result? = null
     private var pendingBytes: ByteArray? = null
@@ -79,6 +80,17 @@ class MainActivity : FlutterActivity() {
                     )
                 }
                 launch(intent, reqOpen)
+            }
+            "copyDocument" -> {
+                // Base produits (SPEC-V2 §3) : copiée en flux dans le dossier
+                // privé, sans passer le fichier en mémoire par le canal.
+                if (!begin(result)) return
+                pendingDest = call.argument<String>("dest")
+                val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                    type = "*/*"
+                }
+                launch(intent, reqCopy)
             }
             "pickImage" -> {
                 if (!begin(result)) return
@@ -137,7 +149,7 @@ class MainActivity : FlutterActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         @Suppress("DEPRECATION")
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode !in listOf(reqSave, reqOpen, reqGallery, reqCamera)) return
+        if (requestCode !in listOf(reqSave, reqOpen, reqGallery, reqCamera, reqCopy)) return
         if (resultCode != Activity.RESULT_OK) {
             complete(null)
             return
@@ -156,6 +168,19 @@ class MainActivity : FlutterActivity() {
                 reqOpen -> {
                     val uri = data?.data
                     complete(uri?.let { u -> contentResolver.openInputStream(u)?.use { it.readBytes() } })
+                }
+                reqCopy -> {
+                    val uri = data?.data
+                    val dest = pendingDest
+                    if (uri == null || dest == null) {
+                        complete(false)
+                    } else {
+                        File(dest).parentFile?.mkdirs()
+                        open(uri).use { input ->
+                            FileOutputStream(dest).use { input.copyTo(it, 1 shl 16) }
+                        }
+                        complete(true)
+                    }
                 }
                 reqGallery -> {
                     val uri = data?.data

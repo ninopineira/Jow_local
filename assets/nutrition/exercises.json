@@ -1,0 +1,375 @@
+{
+ "source": "Table MET de l'ancienne app de nutrition (Compendium of Physical Activities), docs/INVENTAIRE_NUTRITION.md §3.4",
+ "exercises": [
+  {
+   "name": "Marche (5 km/h)",
+   "met": 3.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Marche rapide (6 km/h)",
+   "met": 5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Randonnée",
+   "met": 6,
+   "kind": "cardio"
+  },
+  {
+   "name": "Montée d’escaliers",
+   "met": 8.8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Course (8 km/h)",
+   "met": 8.3,
+   "kind": "cardio"
+  },
+  {
+   "name": "Course (10 km/h)",
+   "met": 9.8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Course (12 km/h)",
+   "met": 11.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Course (14 km/h)",
+   "met": 13.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Vélo (route)",
+   "met": 8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Vélo d’appartement",
+   "met": 7,
+   "kind": "cardio"
+  },
+  {
+   "name": "Spinning / RPM",
+   "met": 8.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Natation",
+   "met": 5.8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Rameur",
+   "met": 7,
+   "kind": "cardio"
+  },
+  {
+   "name": "Elliptique",
+   "met": 5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Corde à sauter",
+   "met": 11,
+   "kind": "cardio"
+  },
+  {
+   "name": "Circuit / poids du corps",
+   "met": 8,
+   "kind": "cardio"
+  },
+  {
+   "name": "HIIT",
+   "met": 8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Football",
+   "met": 7,
+   "kind": "cardio"
+  },
+  {
+   "name": "Basket",
+   "met": 6.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Handball",
+   "met": 8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Volley",
+   "met": 4,
+   "kind": "cardio"
+  },
+  {
+   "name": "Tennis",
+   "met": 7.3,
+   "kind": "cardio"
+  },
+  {
+   "name": "Padel",
+   "met": 6,
+   "kind": "cardio"
+  },
+  {
+   "name": "Badminton",
+   "met": 5.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Escalade",
+   "met": 8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Boxe (sac)",
+   "met": 5.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Boxe (assaut)",
+   "met": 7.8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Arts martiaux",
+   "met": 10.3,
+   "kind": "cardio"
+  },
+  {
+   "name": "Ski",
+   "met": 7,
+   "kind": "cardio"
+  },
+  {
+   "name": "Surf",
+   "met": 5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Golf",
+   "met": 4.8,
+   "kind": "cardio"
+  },
+  {
+   "name": "Équitation",
+   "met": 5.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Danse",
+   "met": 5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Yoga",
+   "met": 2.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Pilates",
+   "met": 3,
+   "kind": "cardio"
+  },
+  {
+   "name": "Étirements",
+   "met": 2.3,
+   "kind": "cardio"
+  },
+  {
+   "name": "Musculation (modérée)",
+   "met": 3.5,
+   "kind": "cardio"
+  },
+  {
+   "name": "Musculation (intense)",
+   "met": 6,
+   "kind": "cardio"
+  },
+  {
+   "name": "Développé couché",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "chest"
+  },
+  {
+   "name": "Développé incliné",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "chest"
+  },
+  {
+   "name": "Écarté poulie",
+   "met": 4,
+   "kind": "strength",
+   "muscleGroup": "chest"
+  },
+  {
+   "name": "Dips",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "chest"
+  },
+  {
+   "name": "Pompes",
+   "met": 4,
+   "kind": "strength",
+   "muscleGroup": "chest"
+  },
+  {
+   "name": "Tractions",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "back"
+  },
+  {
+   "name": "Tirage vertical",
+   "met": 4.5,
+   "kind": "strength",
+   "muscleGroup": "back"
+  },
+  {
+   "name": "Rowing barre",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "back"
+  },
+  {
+   "name": "Rowing haltère",
+   "met": 4.5,
+   "kind": "strength",
+   "muscleGroup": "back"
+  },
+  {
+   "name": "Soulevé de terre",
+   "met": 6,
+   "kind": "strength",
+   "muscleGroup": "back"
+  },
+  {
+   "name": "Squat",
+   "met": 6,
+   "kind": "strength",
+   "muscleGroup": "legs"
+  },
+  {
+   "name": "Presse à cuisses",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "legs"
+  },
+  {
+   "name": "Fentes",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "legs"
+  },
+  {
+   "name": "Soulevé de terre jambes tendues",
+   "met": 5.5,
+   "kind": "strength",
+   "muscleGroup": "legs"
+  },
+  {
+   "name": "Leg curl",
+   "met": 4,
+   "kind": "strength",
+   "muscleGroup": "legs"
+  },
+  {
+   "name": "Leg extension",
+   "met": 4,
+   "kind": "strength",
+   "muscleGroup": "legs"
+  },
+  {
+   "name": "Mollets debout",
+   "met": 3.5,
+   "kind": "strength",
+   "muscleGroup": "legs"
+  },
+  {
+   "name": "Développé militaire",
+   "met": 5,
+   "kind": "strength",
+   "muscleGroup": "shoulders"
+  },
+  {
+   "name": "Élévations latérales",
+   "met": 3.5,
+   "kind": "strength",
+   "muscleGroup": "shoulders"
+  },
+  {
+   "name": "Oiseau",
+   "met": 3.5,
+   "kind": "strength",
+   "muscleGroup": "shoulders"
+  },
+  {
+   "name": "Curl biceps",
+   "met": 3.5,
+   "kind": "strength",
+   "muscleGroup": "arms"
+  },
+  {
+   "name": "Curl marteau",
+   "met": 3.5,
+   "kind": "strength",
+   "muscleGroup": "arms"
+  },
+  {
+   "name": "Extension triceps poulie",
+   "met": 3.5,
+   "kind": "strength",
+   "muscleGroup": "arms"
+  },
+  {
+   "name": "Barre au front",
+   "met": 4,
+   "kind": "strength",
+   "muscleGroup": "arms"
+  },
+  {
+   "name": "Gainage",
+   "met": 3,
+   "kind": "strength",
+   "muscleGroup": "core"
+  },
+  {
+   "name": "Relevé de jambes",
+   "met": 3.5,
+   "kind": "strength",
+   "muscleGroup": "core"
+  },
+  {
+   "name": "Crunch",
+   "met": 3,
+   "kind": "strength",
+   "muscleGroup": "core"
+  },
+  {
+   "name": "Épaulé-jeté",
+   "met": 6,
+   "kind": "strength",
+   "muscleGroup": "full_body"
+  },
+  {
+   "name": "Kettlebell swing",
+   "met": 6,
+   "kind": "strength",
+   "muscleGroup": "full_body"
+  },
+  {
+   "name": "Burpees",
+   "met": 8,
+   "kind": "strength",
+   "muscleGroup": "full_body"
+  }
+ ]
+}

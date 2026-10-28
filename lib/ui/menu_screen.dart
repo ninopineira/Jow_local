@@ -5,7 +5,10 @@ import 'package:go_router/go_router.dart';
 import '../domain/enums.dart';
 import '../domain/generator.dart';
 import '../domain/models.dart';
+import 'done_button.dart';
+import 'stock_screen.dart' show SettingsAction;
 import 'providers.dart';
+import 'v2_providers.dart';
 import 'recipe_picker.dart';
 import 'strings.dart';
 import 'theme.dart';
@@ -34,6 +37,7 @@ class MenuScreen extends ConsumerWidget {
               if (m != null) context.push('/menu/review', extra: m.startDate);
             },
           ),
+          const SettingsAction(),
         ],
       ),
       body: AsyncBody(
@@ -280,23 +284,51 @@ class SlotCard extends ConsumerWidget {
         title = S.emptySlot;
         leading = const _SlotIcon(Icons.add_rounded);
     }
+    // « x/y ingrédients en stock » (SPEC-V2 §8), créneaux pas encore faits.
+    String? coverage;
+    final plan = ref.watch(stockPlanProvider).value;
+    if (plan != null) {
+      final i = plan.$1.indexWhere((u) => u.slot == slot.key);
+      if (i >= 0) {
+        final (ok, total) = plan.$2.coverage[i];
+        if (total > 0) coverage = S.inStockCount(ok, total);
+      }
+    }
     final details = [
       S.meal(slot.key.meal),
       if (slot.kind == SlotKind.recipe || slot.kind == SlotKind.leftovers)
         S.servings(slot.servings),
       if (recipe != null) S.minutesValue(recipe.totalMin),
+      ?coverage,
     ].join(' · ');
+    final canBeDone =
+        slot.kind == SlotKind.recipe ||
+        slot.kind == SlotKind.leftovers ||
+        slot.kind == SlotKind.eatingOut;
     return Card(
-      child: ListTile(
-        key: Key('slot-${slot.key.day}-${slot.key.meal.code}'),
-        minVerticalPadding: 12,
-        leading: leading,
-        title: Text(title),
-        subtitle: Text(details),
-        trailing: slot.locked
-            ? const Icon(Icons.lock_rounded, semanticLabel: S.locked)
-            : null,
-        onTap: () => showSlotSheet(context, ref, menu, slot, catalog, profile),
+      child: Column(
+        children: [
+          ListTile(
+            key: Key('slot-${slot.key.day}-${slot.key.meal.code}'),
+            minVerticalPadding: 12,
+            leading: leading,
+            title: Text(title),
+            subtitle: Text(details),
+            trailing: slot.locked
+                ? const Icon(Icons.lock_rounded, semanticLabel: S.locked)
+                : null,
+            onTap: () =>
+                showSlotSheet(context, ref, menu, slot, catalog, profile),
+          ),
+          if (canBeDone)
+            Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+                child: DoneButton(menu: menu, slot: slot, catalog: catalog),
+              ),
+            ),
+        ],
       ),
     );
   }
@@ -644,6 +676,15 @@ class _ExtrasSection extends ConsumerWidget {
                         ),
                       ],
                     ),
+                    if (menu.extras[i].id != null)
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: DoneButton(
+                          menu: menu,
+                          extraIndex: i,
+                          catalog: catalog,
+                        ),
+                      ),
                     CountStepper(
                       label: S.slotServings,
                       value: menu.extras[i].servings,

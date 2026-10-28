@@ -36,6 +36,7 @@ MemorySeedSource bumpedSeed() {
   final manifest = jsonDecode(read('seed.json')) as Map<String, dynamic>;
   final files = <String, String>{
     'ingredients.json': read('ingredients.json'),
+    'nutrition.json': read('nutrition.json'),
     'seed.json': jsonEncode({
       'version': (manifest['version'] as int) + 1,
       'lots': manifest['lots'],
@@ -114,9 +115,9 @@ void main() {
   });
 
   group('migrations', () {
-    test('schéma v1 créé depuis zéro et cohérent', () async {
+    test('schéma v2 créé depuis zéro et cohérent', () async {
       final db = AppDatabase(NativeDatabase.memory());
-      expect(db.schemaVersion, 1);
+      expect(db.schemaVersion, 2);
       final tables = await db
           .customSelect("SELECT name FROM sqlite_master WHERE type = 'table'")
           .get();

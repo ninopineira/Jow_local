@@ -248,8 +248,10 @@ void main() {
 
   testWidgets('écran À propos : hors ligne expliqué', (tester) async {
     await pumpApp(tester, profile: HouseholdProfile());
-    await tapAndSettle(tester, find.text(S.tabSettings));
+    await tapAndSettle(tester, find.byTooltip(S.openSettings).first);
+    await scrollTo(tester, find.text(S.about));
     await tapAndSettle(tester, find.text(S.about));
+    expect(find.text(S.aboutCredits), findsOneWidget);
     expect(find.text(S.aboutBody), findsOneWidget);
   });
 

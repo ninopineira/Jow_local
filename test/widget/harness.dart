@@ -12,6 +12,8 @@ import 'package:popote/domain/models.dart';
 import 'package:popote/ui/app.dart';
 import 'package:popote/ui/platform.dart';
 import 'package:popote/ui/providers.dart';
+import 'package:popote/ui/scanner.dart';
+import 'package:popote/ui/v2_providers.dart';
 
 import '../helpers/seed_files.dart';
 
@@ -32,17 +34,38 @@ class FakePlatform implements PlatformBridge {
   Future<Uint8List?> openDocument() async => null;
 
   @override
+  Future<bool> copyDocument(String destPath) async => false;
+
+  @override
   Future<bool> pickImage({
     required bool camera,
     required String destPath,
   }) async => false;
 }
 
+/// Scanner simulé (SPEC-V2 §12) : un bouton par code à « scanner ».
+class FakeScanner implements BarcodeScannerService {
+  final codes = <String>[];
+
+  @override
+  Widget preview(void Function(String code) onCode) => Column(
+    children: [
+      for (final c in codes)
+        TextButton(
+          key: Key('scan-$c'),
+          onPressed: () => onCode(c),
+          child: Text('scan $c'),
+        ),
+    ],
+  );
+}
+
 class Harness {
-  Harness(this.repo, this.platform);
+  Harness(this.repo, this.platform, this.scanner);
 
   final Repository repo;
   final FakePlatform platform;
+  final FakeScanner scanner;
 }
 
 /// Mardi 3 mars 2026 : semaine du lundi 2 mars.
@@ -61,6 +84,7 @@ Future<Harness> pumpApp(
 
   final repo = Repository(AppDatabase(NativeDatabase.memory()));
   final platform = FakePlatform();
+  final scanner = FakeScanner();
   final photos = Directory.systemTemp.createTempSync('popote-photos');
   await tester.runAsync(() async {
     await repo.importSeedIfNeeded(FileSeedSource());
@@ -78,12 +102,13 @@ Future<Harness> pumpApp(
         photoStoreProvider.overrideWithValue(FilePhotoStore(photos)),
         platformProvider.overrideWithValue(platform),
         todayProvider.overrideWithValue(today),
+        scannerProvider.overrideWithValue(scanner),
       ],
       child: PopoteApp(onboarded: profile != null),
     ),
   );
   await settle(tester);
-  return Harness(repo, platform);
+  return Harness(repo, platform, scanner);
 }
 
 /// Laisse les requêtes de la base (vraies E/S) se terminer, puis l'interface.

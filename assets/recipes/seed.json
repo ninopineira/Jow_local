@@ -1,4 +1,4 @@
 {
-  "version": 1,
+  "version": 2,
   "lots": ["vegan-1", "vegan-2", "vege-1", "vege-2", "poisson", "volaille", "boeuf", "porc", "rapides", "sucre"]
 }

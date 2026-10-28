@@ -6,8 +6,11 @@ import '../domain/enums.dart';
 import '../domain/models.dart';
 import '../domain/quantities.dart';
 import '../domain/shopping.dart';
+import '../domain/stock.dart';
 import 'providers.dart';
+import 'stock_screen.dart';
 import 'strings.dart';
+import 'v2_providers.dart';
 import 'widgets.dart';
 
 class ListData {
@@ -28,6 +31,11 @@ final listDataProvider = FutureProvider<ListData?>((ref) async {
   final menu = await ref.watch(menuProvider.future);
   if (menu.id == null || menu.status != MenuStatus.validated) return null;
   final repo = ref.watch(repositoryProvider);
+  // V2 : la liste déduit le stock (le dépôt V2 branche ce calcul).
+  ref.watch(kitchenProvider);
+  ref.watch(stockProvider);
+  // Recalcul en gardant les cases cochées des lignes inchangées (V1).
+  await repo.refreshShopping(menu);
   return ListData(
     menu,
     await repo.computeLines(menu),
@@ -58,6 +66,14 @@ class ListScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text(S.listTitle),
         actions: [
+          IconButton(
+            tooltip: S.scan,
+            icon: const Icon(Icons.qr_code_scanner_rounded),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const StoreGroceriesScreen()),
+            ),
+          ),
+          const SettingsAction(),
           if (d != null) ...[
             IconButton(
               tooltip: S.copy,
@@ -110,6 +126,7 @@ class _ListBody extends ConsumerWidget {
           S.weekOf(data.menu.startDate),
           style: Theme.of(context).textTheme.bodySmall,
         ),
+        const SectionTitle(S.toBuy),
         for (final aisle in order)
           if (data.lines.any(
             (l) => !l.pantry && l.ingredient.aisle == aisle,
@@ -135,6 +152,7 @@ class _ListBody extends ConsumerWidget {
               ],
             ),
           ),
+        const _InStockSection(),
         SectionTitle(S.manualSection),
         for (final m in data.manual)
           Card(
@@ -178,6 +196,15 @@ class ShoppingLineTile extends ConsumerWidget {
         ? '$qty × $name'
         : '$name — $qty';
     final actions = ref.read(actionsProvider);
+    final pack = ref.watch(packagesProvider).value?[line.ingredient.id];
+    final packs = pack == null
+        ? null
+        : packagesFor(
+            line.ingredient,
+            line.amount,
+            pack.packageQty!,
+            pack.packageUnit!,
+          );
     return Card(
       key: Key('line-${line.key}'),
       child: Row(
@@ -202,6 +229,14 @@ class ShoppingLineTile extends ConsumerWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  if (packs != null)
+                    Text(
+                      S.packages(
+                        packs,
+                        '${formatNumber(pack!.packageQty!)} '
+                        '${S.stockUnitLabel(pack.packageUnit!.code)}',
+                      ),
+                    ),
                   Text(
                     S.forRecipes(line.recipeTitles),
                     style: Theme.of(context).textTheme.bodySmall,
@@ -211,13 +246,17 @@ class ShoppingLineTile extends ConsumerWidget {
             ),
           ),
           IconButton(
-            tooltip: S.atHome,
-            isSelected: atHome,
+            tooltip: S.haveIt,
             icon: const Icon(Icons.home_outlined),
-            selectedIcon: const Icon(Icons.home_rounded),
-            onPressed: item?.id == null
-                ? null
-                : () => actions.setChecks(item!.id!, atHome: !atHome),
+            // V2 : « j'en ai déjà » ajoute la quantité au stock réel.
+            onPressed: () => addWithoutScan(
+              context,
+              ref,
+              ingredient: line.ingredient,
+              quantity: line.amount.dimension == Dimension.pinch
+                  ? line.amount.value * 0.5
+                  : line.amount.value,
+            ),
           ),
         ],
       ),
@@ -265,4 +304,33 @@ class _AddItemFieldState extends ConsumerState<_AddItemField> {
       onSubmitted: (_) => add(),
     ),
   );
+}
+
+/// « Déjà en stock » (repliée) : ce que le stock couvre (SPEC-V2 §7).
+class _InStockSection extends ConsumerWidget {
+  const _InStockSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final plan = ref.watch(stockPlanProvider).value?.$2;
+    if (plan == null || plan.inStock.isEmpty) return const SizedBox.shrink();
+    return Card(
+      child: ExpansionTile(
+        key: const Key('in-stock'),
+        shape: const Border(),
+        title: Text(
+          '${S.alreadyInStock} (${plan.inStock.length})',
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+        children: [
+          for (final l in plan.inStock)
+            ListTile(
+              leading: const Icon(Icons.check_rounded),
+              title: Text(l.ingredient.name),
+              trailing: Text(formatAmount(l.amount)),
+            ),
+        ],
+      ),
+    );
+  }
 }

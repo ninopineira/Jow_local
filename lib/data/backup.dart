@@ -6,12 +6,15 @@ import 'package:drift/drift.dart' show Value;
 
 import '../domain/enums.dart';
 import '../domain/models.dart';
+import 'backup_v2.dart';
 import 'database.dart';
 import 'repository.dart';
 
 /// Format d'export versionné (SPEC §3.9) : `data.json` + `photos/` dans un zip.
 const exportFormat = 'popote-export';
-const exportVersion = 1;
+
+/// 2 : ajout des données V2 (stock, journal, nutrition…, SPEC-V2 §11).
+const exportVersion = 2;
 
 /// Accès aux photos des recettes perso (dossier privé de l'app).
 abstract class PhotoStore {
@@ -98,6 +101,11 @@ class BackupService {
     final menus = await repo.allMenus();
     final p = await repo.profile();
     final onboarded = await repo.isOnboarded();
+
+    final menuCodes = {
+      for (final m in menus)
+        if (m.id != null) m.id!: _dateCode(m.startDate),
+    };
 
     String? refOf(int? id) =>
         id == null || byId[id] == null ? null : _ref(byId[id]!);
@@ -207,6 +215,11 @@ class BackupService {
           },
       ],
       'lastReviewedWeek': await repo.meta(Repository.metaLastReviewedWeek),
+      'v2': await V2Backup(_db).export(
+        menuCode: () =>
+            (id) => menuCodes[id],
+        recipeRef: refOf,
+      ),
     };
   }
 
@@ -415,6 +428,18 @@ class BackupService {
                 ),
               );
         }
+      }
+
+      final v2 = data['v2'] as Map<String, dynamic>?;
+      if (v2 != null) {
+        final menusByCode = {
+          for (final m in await repo.allMenus()) _dateCode(m.startDate): m.id,
+        };
+        await V2Backup(_db).apply(
+          v2,
+          menuId: (c) => menusByCode[c],
+          recipeId: (r) => r == null ? null : refs[r],
+        );
       }
 
       final reviewed = data['lastReviewedWeek'] as String?;

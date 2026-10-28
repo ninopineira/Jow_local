@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 
 import '../domain/enums.dart';
 import '../domain/models.dart';
+import '../domain/nutrition.dart';
 import '../domain/shopping.dart';
 import 'database.dart';
 import 'seed.dart';
@@ -144,6 +147,11 @@ class Repository {
         allergens: Value(_joinCodes(i.allergens.map((a) => a.code))),
         seasonMonths: Value(_joinCodes(i.seasonMonths.map((m) => '$m'))),
         origin: origin.code,
+        nutrition: Value(
+          i.nutrition == null ? null : jsonEncode(i.nutrition!.toJson()),
+        ),
+        density: Value(i.density),
+        ciqualCode: Value(i.ciqualCode),
       );
 
   Ingredient _ingredient(IngredientRow r) => Ingredient(
@@ -158,6 +166,11 @@ class Repository {
     allergens: _split(r.allergens).map(Allergen.fromCode).toSet(),
     seasonMonths: _split(r.seasonMonths).map(int.parse).toSet(),
     origin: Origin.fromCode(r.origin),
+    nutrition: r.nutrition == null
+        ? null
+        : Nutrients.fromJson(jsonDecode(r.nutrition!) as Map<String, dynamic>),
+    density: r.density,
+    ciqualCode: r.ciqualCode,
   );
 
   Future<List<Ingredient>> ingredients() async {
@@ -190,6 +203,9 @@ class Repository {
       allergens: i.allergens,
       seasonMonths: i.seasonMonths,
       origin: Origin.personal,
+      nutrition: i.nutrition,
+      density: i.density,
+      ciqualCode: i.ciqualCode,
     );
     await db
         .into(db.ingredients)
@@ -601,6 +617,8 @@ class Repository {
             .into(db.weekExtras)
             .insert(
               WeekExtrasCompanion.insert(
+                // Identifiant conservé : un extra « fait » (V2) y reste lié.
+                id: e.id == null ? const Value.absent() : Value(e.id!),
                 menuId: id,
                 recipeId: e.recipeId,
                 servings: e.servings,
@@ -675,8 +693,13 @@ class Repository {
     manual: r.manual,
   );
 
+  /// V2 : calcul de la liste avec le stock (besoin − stock), fourni par
+  /// le dépôt V2. Null : liste V1 sans stock.
+  Future<List<ShoppingLine>> Function(WeekMenu m)? stockAwareLines;
+
   /// Lignes calculées depuis le menu et les extras.
   Future<List<ShoppingLine>> computeLines(WeekMenu m) async {
+    if (stockAwareLines != null) return stockAwareLines!(m);
     final recipesById = {for (final r in await recipes()) r.id: r};
     return aggregateShopping(
       plannedRecipes(slots: m.slots, extras: m.extras, recipes: recipesById),
@@ -731,6 +754,26 @@ class Repository {
 
   /// Efface toutes les données utilisateur ; les données fournies restent.
   Future<void> resetAll() => db.transaction(() async {
+    // Données V2 d'abord (elles référencent menus et ingrédients).
+    for (final TableInfo<Table, Object?> t in [
+      db.stockMovements,
+      db.stockLots,
+      db.mealCompletions,
+      db.foodLogEntries,
+      db.mealPresetItems,
+      db.mealPresets,
+      db.nutritionProfiles,
+      db.nutritionGoals,
+      db.bodyWeights,
+      db.dailySteps,
+      db.strengthSets,
+      db.strengthSessions,
+      db.workouts,
+      db.productLinks,
+      db.customProducts,
+    ]) {
+      await db.delete(t).go();
+    }
     await db.delete(db.shoppingItems).go();
     await db.delete(db.weekExtras).go();
     await db.delete(db.menuSlots).go();

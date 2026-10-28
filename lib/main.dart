@@ -12,6 +12,7 @@ import 'data/seed.dart';
 import 'ui/app.dart';
 import 'ui/platform.dart';
 import 'ui/providers.dart';
+import 'ui/v2_providers.dart';
 
 /// Données fournies lues depuis les assets de l'app.
 class AssetSeedSource implements SeedSource {
@@ -35,6 +36,10 @@ Future<void> main() async {
         repositoryProvider.overrideWithValue(repo),
         photoStoreProvider.overrideWithValue(
           FilePhotoStore(Directory('${dir.path}/photos')),
+        ),
+        // Base produits importée (SPEC-V2 §3), dans le dossier privé.
+        productDbFileProvider.overrideWithValue(
+          File('${dir.path}/products.db'),
         ),
       ],
       child: PopoteApp(onboarded: onboarded),

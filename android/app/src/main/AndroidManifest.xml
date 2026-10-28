@@ -1,6 +1,15 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Popote ne déclare AUCUNE permission réseau (SPEC §1). Les manifestes
          debug et profile gardent INTERNET pour le hot reload uniquement. -->
+    <!-- Seule exception V2 (SPEC-V2 §1) : la caméra, pour lire les codes-barres
+         sur l'appareil (modèle ML Kit embarqué, jamais téléchargé). -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <!-- Les bibliothèques ML Kit peuvent déclarer ces permissions pour leur
+         télémétrie : retirées du manifeste fusionné, aucun envoi possible. -->
+    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
     <application
         android:label="Popote"
         android:name="${applicationName}"

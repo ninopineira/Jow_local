@@ -13,6 +13,8 @@ class GeneratorInput {
     required this.slots,
     this.recentRecipeIds = const {},
     required this.seed,
+    this.stockAffinity = const {},
+    this.stockWeight = 10,
   });
 
   final List<Recipe> recipes;
@@ -26,6 +28,13 @@ class GeneratorInput {
   /// Recettes planifiées pendant l'horizon anti-répétition.
   final Set<int> recentRecipeIds;
   final int seed;
+
+  /// Bonus anti-gaspillage par recette (0 à 1), calculé depuis le stock
+  /// (SPEC-V2 §8). Jamais une contrainte dure.
+  final Map<int, double> stockAffinity;
+
+  /// Poids du bonus de stock (réglable [H]).
+  final double stockWeight;
 }
 
 class GeneratorResult {
@@ -244,6 +253,7 @@ GeneratorResult generateMenu(GeneratorInput input) {
       }
       if (adjacentBases.contains(r.mainBase)) score += _W.sameBaseAdjacent;
       score += _W.season * seasonRatio(r, month);
+      score += input.stockWeight * (input.stockAffinity[r.id] ?? 0);
       final shared = perishables[r.id]!.intersection(usedPerishables).length;
       score += min(shared * _W.sharedPerishable, _W.sharedPerishableMax);
       if (!weekend) {

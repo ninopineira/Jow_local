@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../domain/enums.dart';
 import 'list_screen.dart';
 import 'menu_screen.dart';
+import 'nutrition_screen.dart';
 import 'onboarding_screen.dart';
 import 'providers.dart';
 import 'recipe_detail_screen.dart';
@@ -12,6 +13,7 @@ import 'recipe_editor_screen.dart';
 import 'recipes_screen.dart';
 import 'review_screen.dart';
 import 'settings_screen.dart';
+import 'stock_screen.dart';
 import 'strings.dart';
 import 'theme.dart';
 
@@ -39,6 +41,19 @@ GoRouter buildRouter({required bool onboarded}) => GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(path: '/list', builder: (_, _) => const ListScreen()),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(path: '/stock', builder: (_, _) => const StockScreen()),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/nutrition',
+              builder: (_, _) => const NutritionScreen(),
+            ),
           ],
         ),
         StatefulShellBranch(
@@ -75,25 +90,16 @@ GoRouter buildRouter({required bool onboarded}) => GoRouter(
             ),
           ],
         ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: '/settings',
-              builder: (_, _) => const SettingsScreen(),
-              routes: [
-                GoRoute(
-                  path: 'profile',
-                  builder: (_, _) => const ProfileEditScreen(),
-                ),
-                GoRoute(
-                  path: 'aisles',
-                  builder: (_, _) => const AisleOrderScreen(),
-                ),
-                GoRoute(path: 'about', builder: (_, _) => const AboutScreen()),
-              ],
-            ),
-          ],
-        ),
+      ],
+    ),
+    // Réglages : icône de la barre du haut (SPEC-V2 §9), hors onglets.
+    GoRoute(
+      path: '/settings',
+      builder: (_, _) => const SettingsScreen(),
+      routes: [
+        GoRoute(path: 'profile', builder: (_, _) => const ProfileEditScreen()),
+        GoRoute(path: 'aisles', builder: (_, _) => const AisleOrderScreen()),
+        GoRoute(path: 'about', builder: (_, _) => const AboutScreen()),
       ],
     ),
   ],
@@ -123,14 +129,19 @@ class HomeShell extends StatelessWidget {
           label: S.tabList,
         ),
         NavigationDestination(
+          icon: Icon(Icons.kitchen_outlined),
+          selectedIcon: Icon(Icons.kitchen_rounded),
+          label: S.tabStock,
+        ),
+        NavigationDestination(
+          icon: Icon(Icons.monitor_heart_outlined),
+          selectedIcon: Icon(Icons.monitor_heart_rounded),
+          label: S.tabNutrition,
+        ),
+        NavigationDestination(
           icon: Icon(Icons.menu_book_outlined),
           selectedIcon: Icon(Icons.menu_book_rounded),
           label: S.tabRecipes,
-        ),
-        NavigationDestination(
-          icon: Icon(Icons.settings_outlined),
-          selectedIcon: Icon(Icons.settings_rounded),
-          label: S.tabSettings,
         ),
       ],
     ),
