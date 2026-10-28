@@ -215,4 +215,39 @@ void main() {
     expect(find.text('Pomme'), findsOneWidget);
     expect(find.text('480 ${S.kcal}'), findsOneWidget);
   });
+
+  testWidgets('profil nutrition : champs lisibles sur petit écran', (
+    tester,
+  ) async {
+    await pumpApp(tester, profile: HouseholdProfile());
+    // Téléphone étroit (360 dp) et texte système agrandi.
+    tester.view.physicalSize = const Size(900, 2000);
+    tester.platformDispatcher.textScaleFactorTestValue = 1.3;
+    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+    await settle(tester);
+    await tapAndSettle(tester, find.text(S.tabNutrition));
+    await tapAndSettle(tester, find.text(S.nutritionProfile));
+    expect(tester.takeException(), isNull);
+    final labels = [
+      S.birthDate,
+      S.heightCm,
+      S.weightKg,
+      S.activity,
+      S.goal,
+      S.goalDelta,
+    ];
+    Rect field(String label) => tester.getRect(
+      find.ancestor(
+        of: find.text(label),
+        matching: find.byType(InputDecorator),
+      ),
+    );
+    for (var i = 1; i < labels.length; i++) {
+      expect(
+        field(labels[i]).top,
+        greaterThanOrEqualTo(field(labels[i - 1]).bottom),
+        reason: '${labels[i]} chevauche ${labels[i - 1]}',
+      );
+    }
+  });
 }

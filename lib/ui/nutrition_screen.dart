@@ -1145,52 +1145,82 @@ Future<void> editNutritionProfile(BuildContext context, WidgetRef ref) async {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SegmentedButton<Sex>(
-                segments: const [
-                  ButtonSegment(value: Sex.male, label: Text(S.male)),
-                  ButtonSegment(value: Sex.female, label: Text(S.female)),
-                ],
-                selected: {sex},
-                onSelectionChanged: (s) => set(() => sex = s.first),
+              SizedBox(
+                width: double.infinity,
+                child: SegmentedButton<Sex>(
+                  segments: const [
+                    ButtonSegment(value: Sex.male, label: Text(S.male)),
+                    ButtonSegment(value: Sex.female, label: Text(S.female)),
+                  ],
+                  selected: {sex},
+                  onSelectionChanged: (s) => set(() => sex = s.first),
+                ),
               ),
+              const SizedBox(height: 12),
               TextField(
                 controller: birth,
-                decoration: const InputDecoration(labelText: S.birthDate),
+                keyboardType: TextInputType.datetime,
+                decoration: const InputDecoration(
+                  labelText: S.birthDate,
+                  hintText: S.birthDateHint,
+                ),
               ),
+              const SizedBox(height: 12),
               TextField(
                 controller: height,
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(labelText: S.heightCm),
               ),
-              if (p == null)
+              if (p == null) ...[
+                const SizedBox(height: 12),
                 TextField(
                   controller: weight,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(labelText: S.weightKg),
                 ),
-              const SizedBox(height: 8),
-              Text(S.activity),
-              DropdownButton<ActivityLevel>(
-                value: activity,
+              ],
+              const SizedBox(height: 12),
+              // Libellés longs : une seule ligne tronquée dans le champ, texte
+              // complet (sur plusieurs lignes si besoin) dans le menu ouvert.
+              DropdownButtonFormField<ActivityLevel>(
+                initialValue: activity,
                 isExpanded: true,
+                itemHeight: null,
+                decoration: const InputDecoration(labelText: S.activity),
+                selectedItemBuilder: (_) => [
+                  for (final a in ActivityLevel.values)
+                    Text(
+                      S.activityLabel(a.code),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                ],
                 items: [
                   for (final a in ActivityLevel.values)
                     DropdownMenuItem(
                       value: a,
-                      child: Text(S.activityLabel(a.code)),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Text(S.activityLabel(a.code)),
+                      ),
                     ),
                 ],
                 onChanged: (a) => set(() => activity = a ?? activity),
               ),
-              Text(S.goal),
-              DropdownButton<GoalKind>(
-                value: goal,
+              const SizedBox(height: 12),
+              DropdownButtonFormField<GoalKind>(
+                initialValue: goal,
                 isExpanded: true,
+                decoration: const InputDecoration(labelText: S.goal),
                 items: [
                   for (final g in GoalKind.values)
                     DropdownMenuItem(
                       value: g,
-                      child: Text(S.goalLabel(g.code)),
+                      child: Text(
+                        S.goalLabel(g.code),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                 ],
                 onChanged: (g) => set(() {
@@ -1198,6 +1228,7 @@ Future<void> editNutritionProfile(BuildContext context, WidgetRef ref) async {
                   delta.text = formatNumber(goal.defaultDelta);
                 }),
               ),
+              const SizedBox(height: 12),
               TextField(
                 controller: delta,
                 keyboardType: const TextInputType.numberWithOptions(

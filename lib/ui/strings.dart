@@ -570,7 +570,8 @@ abstract final class S {
   static const sex = 'Sexe';
   static const male = 'Homme';
   static const female = 'Femme';
-  static const birthDate = 'Date de naissance (AAAA-MM-JJ)';
+  static const birthDate = 'Date de naissance';
+  static const birthDateHint = 'AAAA-MM-JJ';
   static const heightCm = 'Taille (cm)';
   static const weightKg = 'Poids (kg)';
   static const bodyFat = 'Masse grasse (%) (facultatif)';
