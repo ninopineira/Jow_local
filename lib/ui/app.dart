@@ -160,8 +160,27 @@ class PopoteApp extends ConsumerStatefulWidget {
 class _PopoteAppState extends ConsumerState<PopoteApp> {
   late final router = buildRouter(onboarded: widget.onboarded);
 
+  /// L'app peut rester des jours en arrière-plan : au retour, « aujourd'hui »
+  /// suit la date réelle (menu, journal, bilan du jour).
+  late final _lifecycle = AppLifecycleListener(
+    onResume: () {
+      final t = ref.read(todayProvider);
+      final now = DateTime.now();
+      if (t.year != now.year || t.month != now.month || t.day != now.day) {
+        ref.invalidate(todayProvider);
+      }
+    },
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _lifecycle;
+  }
+
   @override
   void dispose() {
+    _lifecycle.dispose();
     router.dispose();
     super.dispose();
   }

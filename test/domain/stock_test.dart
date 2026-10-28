@@ -170,6 +170,24 @@ void main() {
       );
       expect(recipeMacrosPerServing(recette).protein, closeTo(18, 1e-9));
     });
+
+    test('jour du journal : prévu, sauf repas avancé compté aujourd\'hui', () {
+      final today = DateTime(2026, 10, 28, 20, 15);
+      // Repas du jeudi mangé mercredi : bilan de mercredi.
+      expect(
+        mealLogDate(DateTime(2026, 10, 29), today),
+        DateTime(2026, 10, 28),
+      );
+      // Repas du jour ou passé oublié : son jour.
+      expect(
+        mealLogDate(DateTime(2026, 10, 28), today),
+        DateTime(2026, 10, 28),
+      );
+      expect(
+        mealLogDate(DateTime(2026, 10, 26), today),
+        DateTime(2026, 10, 26),
+      );
+    });
   });
 
   group('liste = besoin − stock, réservation chronologique', () {

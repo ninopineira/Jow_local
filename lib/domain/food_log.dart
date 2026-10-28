@@ -196,6 +196,15 @@ class MealCompletion {
   final DateTime at;
 }
 
+/// Jour du journal pour un repas du menu marqué « Fait » : le jour prévu,
+/// sauf s'il est dans le futur (repas avancé) : alors aujourd'hui. Un repas
+/// passé oublié reste sur son jour.
+DateTime mealLogDate(DateTime planned, DateTime today) {
+  final p = DateTime(planned.year, planned.month, planned.day);
+  final t = DateTime(today.year, today.month, today.day);
+  return p.isAfter(t) ? t : p;
+}
+
 String _normalize(String s) {
   const from = 'àâäáãçéèêëíìîïñóòôöõúùûüÿœæ';
   const to = 'aaaaaceeeeiiiinooooouuuuyoa';

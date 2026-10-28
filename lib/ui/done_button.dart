@@ -56,8 +56,11 @@ class DoneButton extends ConsumerWidget {
       ? 'slot:${slotKeyCode(slot!.key)}'
       : 'extra:${menu.extras[extraIndex!].id}';
 
-  DateTime get _date =>
-      slot != null ? dayDate(menu.startDate, slot!.key.day) : DateTime.now();
+  /// Jour du journal : celui du créneau, ramené à aujourd'hui s'il est à
+  /// venir ; aujourd'hui pour un extra.
+  DateTime _date(DateTime today) => slot != null
+      ? mealLogDate(dayDate(menu.startDate, slot!.key.day), today)
+      : mealLogDate(today, today);
 
   Recipe? get _recipe => slot != null
       ? recipeForSlot(menu, slot!, catalog)
@@ -79,6 +82,8 @@ class DoneButton extends ConsumerWidget {
   }) async {
     final recipe = _recipe;
     if (recipe == null) return;
+    final today = ref.read(todayProvider);
+    final date = _date(today);
     final m = await _saved(ref);
     await ref
         .read(kitchenActionsProvider)
@@ -86,7 +91,7 @@ class DoneButton extends ConsumerWidget {
           (k) => k.markDone(
             menu: m,
             recipe: recipe,
-            date: _date,
+            date: date,
             slot: slot?.key,
             extraId: slot == null ? m.extras[extraIndex!].id : null,
             cookedServings: _cooked,
@@ -96,8 +101,16 @@ class DoneButton extends ConsumerWidget {
           ),
         );
     if (context.mounted) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(S.doneSnack(recipe.title))));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            S.doneSnack(
+              recipe.title,
+              on: date == mealLogDate(today, today) ? null : date,
+            ),
+          ),
+        ),
+      );
     }
   }
 
@@ -214,7 +227,7 @@ class DoneButton extends ConsumerWidget {
         .run(
           (k) => k.addLogEntry(
             FoodLogEntry(
-              date: _date,
+              date: _date(ref.read(todayProvider)),
               moment: Moment.forMeal(slot!.key.meal),
               label: S.eatingOut,
               source: LogSource.free,

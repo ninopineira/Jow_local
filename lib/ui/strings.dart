@@ -550,7 +550,11 @@ abstract final class S {
   static const portionsEaten = 'Parts mangées';
   static const removeIngredient = 'Retirer';
   static const replaceIngredient = 'Remplacer';
-  static String doneSnack(String title) => '$title : fait';
+
+  /// [on] : jour du journal quand ce n'est pas aujourd'hui.
+  static String doneSnack(String title, {DateTime? on}) => on == null
+      ? '$title : fait'
+      : '$title : fait, compté le ${weekday(on.weekday)} ${date(on)}';
   static String inStockCount(int ok, int total) => '$ok/$total en stock';
   static const outsideKcal = 'Calories du repas dehors';
 

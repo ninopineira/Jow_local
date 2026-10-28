@@ -56,3 +56,8 @@ Décisions structurantes prises en cours de route, avec leur raison (SPEC §8).
 - `tool/build_product_db.dart` lit l'export Open Food Facts **en flux** (HTTP + gzip), n'écrit qu'une base filtrée temporaire et la supprime ; 2026-10-28 : 2 117 569 lignes lues, 661 626 produits gardés, 31,7 Mo compressés (sous la limite de 150 Mo, aucun produit écarté).
 - **Composants ML Kit restants** (audit relecteur-local du 2026-10-28) : le manifeste fusionné contient des composants `com.google.android.datatransport` (planification de la télémétrie) et les classes du client léger `play-services-mlkit-barcode-scanning`, tirés en transitif. Sans permission INTERNET rien ne peut partir, et sans méta-donnée `com.google.mlkit.vision.DEPENDENCIES` aucun modèle n'est téléchargé (modèle `libbarhopper_v3.so` + `.tflite` embarqués). On les laisse : les retirer imposerait de revalider le scan sur l'appareil. `check_offline` échoue si `useUnbundled=true` réapparaît.
 - **Build release par l'agent** : comme en V1, `GRADLE_USER_HOME` temporaire (bac à sable) avec un magasin PKCS12 = autorités du JDK + racine Norton ; configuration globale et projet inchangés.
+
+## 2026-10-28 — « Fait » et bilan du jour
+
+- **Jour du journal d'un repas « Fait »** : le jour prévu du créneau, sauf s'il est à venir (repas avancé) : il est alors compté **aujourd'hui** (`mealLogDate`). Avant, un repas du jeudi mangé mercredi partait dans le bilan de jeudi et semblait absent. Un repas passé oublié reste sur son jour ; le message de confirmation indique le jour quand ce n'est pas aujourd'hui.
+- **Date du jour** : `todayProvider` est recalculé au retour au premier plan si la date a changé (l'app pouvait rester des jours en arrière-plan avec un « aujourd'hui » figé).
