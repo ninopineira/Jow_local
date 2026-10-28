@@ -104,6 +104,7 @@ class SettingsScreen extends ConsumerWidget {
               const Divider(),
               const ProductDbTile(),
               const StockWeightTile(),
+              const OldAppImportTile(),
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.info_outline_rounded),

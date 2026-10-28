@@ -11,7 +11,7 @@
 
 ## Notes
 
-- **SPEC-V2 §10 sauté** : `docs/EXPORT_FORMAT.md` n'existe pas (et l'ancienne app n'a aucun export). L'import depuis l'ancienne app sera écrit si ce fichier est produit plus tard.
+- **SPEC-V2 §10** : l'ancienne app n'avait aucun export. `docs/EXPORT_FORMAT.md` a donc été **proposé côté Popote** à partir du schéma réel de l'ancienne app, et l'import est écrit (`lib/data/old_app_import.dart`, Réglages → « Importer depuis l'ancienne app », aperçu + confirmation, idempotent, testé sur un exemple). Reste à lancer dans l'ancienne app le prompt séparé qui produit ce fichier.
 
 ## Implémentation V2 (2026-10-28) — arrêt à la limite de 80 tours
 
@@ -30,5 +30,11 @@ Validation finale (2026-10-28) :
 - [x] `relecteur-local` : VERDICT OK, aucun point bloquant ; points à surveiller traités (note DECISIONS.md, garde-fou `useUnbundled` dans check_offline).
 - [x] Valeurs nutritionnelles des ingrédients perso (saisie, reprise d'un ingrédient Ciqual ou d'un produit scanné) dans l'éditeur de recette.
 - [x] DECISIONS.md et README à jour.
+
+Après l'import de l'ancienne app (même jour) : `testeur` → « No issues found! », « +146: All tests passed! » ; build release 79,4 Mo ; `check_offline` OK (CAMERA seule) ; `relecteur-local` OK.
+
+À reprendre (points à surveiller de relecteur-local, non bloquants) :
+- [ ] `OldAppImportTile` n'intercepte que `FormatException` : un fichier au bon format mais mal typé lèverait une `TypeError` ; afficher un message générique.
+- [ ] Le texte `oldAppImportHint` cite « docs/EXPORT_FORMAT.md », sans intérêt pour l'utilisateur.
 
 Pistes : tester le scan et l'import de la base produits sur le téléphone ; import de l'ancienne app si `docs/EXPORT_FORMAT.md` est produit.

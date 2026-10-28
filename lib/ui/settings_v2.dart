@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../data/old_app_import.dart';
 import '../data/product_catalog.dart';
 import 'providers.dart';
 import 'strings.dart';
@@ -106,4 +107,69 @@ class StockWeightTile extends ConsumerWidget {
       },
     );
   }
+}
+
+/// Réglages → « Importer depuis l'ancienne app » (SPEC-V2 §10) : fichier au
+/// format docs/EXPORT_FORMAT.md, aperçu puis confirmation, idempotent.
+class OldAppImportTile extends ConsumerWidget {
+  const OldAppImportTile({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) => ListTile(
+    leading: const Icon(Icons.move_down_rounded),
+    title: const Text(S.oldAppImport),
+    subtitle: const Text(S.oldAppImportHint),
+    onTap: () async {
+      final messenger = ScaffoldMessenger.of(context);
+      final bytes = await ref.read(platformProvider).openDocument();
+      if (bytes == null) return;
+      final importer = OldAppImport(ref.read(kitchenProvider));
+      final OldAppPreview preview;
+      try {
+        preview = await importer.preview(importer.parse(bytes));
+      } on FormatException catch (e) {
+        messenger.showSnackBar(SnackBar(content: Text(e.message)));
+        return;
+      }
+      if (!context.mounted) return;
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text(S.oldAppImport),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (final e in preview.total.entries)
+                  if (e.value > 0)
+                    Text(
+                      S.oldAppLine(
+                        S.oldAppCategory(e.key),
+                        e.value,
+                        preview.fresh[e.key],
+                      ),
+                    ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text(S.cancel),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: const Text(S.importConfirmAction),
+            ),
+          ],
+        ),
+      );
+      if (ok != true) return;
+      await ref
+          .read(kitchenActionsProvider)
+          .run((_) => importer.apply(preview.data));
+      messenger.showSnackBar(const SnackBar(content: Text(S.oldAppDone)));
+    },
+  );
 }

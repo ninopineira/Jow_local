@@ -519,6 +519,28 @@ abstract final class S {
   static const stockWeightHint =
       'Favorise les recettes qui utilisent ton stock, surtout périssable.';
 
+  // Import de l'ancienne app (SPEC-V2 §10)
+  static const oldAppImport = 'Importer depuis l’ancienne app';
+  static const oldAppImportHint =
+      'Fichier app-nutrition-export (voir docs/EXPORT_FORMAT.md) : profil, '
+      'journal, banque de repas, pas, séances, pesées.';
+  static const importConfirmAction = 'Importer';
+  static const oldAppDone = 'Données de l’ancienne app importées.';
+  static String oldAppCategory(String key) => switch (key) {
+    'profile' => 'Profil',
+    'goals' => 'Objectifs',
+    'foods' => 'Aliments et produits',
+    'meals' => 'Lignes du journal',
+    'mealPresets' => 'Repas de la banque',
+    'dailySteps' => 'Jours de pas',
+    'workouts' => 'Activités',
+    'strengthSessions' => 'Séances de musculation',
+    _ => 'Pesées',
+  };
+  static String oldAppLine(String label, int total, int? fresh) => fresh == null
+      ? '$label : $total'
+      : '$label : $total (dont $fresh nouveaux)';
+
   // Repas faits
   static const done = 'Fait';
   static const undoDone = 'Annuler « Fait »';
